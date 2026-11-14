@@ -990,5 +990,81 @@ document.addEventListener('click',function(e){var a=e.target.closest('a[href="#c
   var m={kcai:'AI 매칭 (무료 AI 진단)',kcai3:'AI 중국 마케팅 (무료 자가진단)',kcai4:'AI B2B 소싱 (설비·원료 구매)'}[sec.id];if(!m)return;
   var sel=document.getElementById('type');for(var i=0;i<sel.options.length;i++)if(sel.options[i].getAttribute('data-ko')===m){sel.selectedIndex=i;break}});
 </script>
+
+<!-- 진단 결과 접수 모달: 메일 앱 대신 구글 시트 DB(kcai.my 공용)로 바로 접수 -->
+<style id="kc-send-css">
+#kcSend{position:fixed;inset:0;background:rgba(11,31,58,.6);display:none;align-items:center;justify-content:center;z-index:99999;padding:20px}
+#kcSend.on{display:flex}
+#kcSend form{padding:0!important;margin:0!important;background:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;max-width:none!important}
+#kcSend .bx{background:#fff;border-radius:18px;max-width:460px;width:100%;padding:30px 28px;box-shadow:0 30px 80px rgba(0,0,0,.35);font-size:15px;color:#1B2230}
+#kcSend h3{margin:0 0 6px;font-size:21px;color:#0E2A54}
+#kcSend .sub{margin:0 0 18px;color:#5b6475;font-size:14px;line-height:1.6}
+#kcSend label{display:block;font-weight:600;font-size:13px;margin:12px 0 5px}
+#kcSend input,#kcSend textarea{width:100%;box-sizing:border-box;border:1px solid #D9DEE7;border-radius:10px;padding:11px 12px;font:inherit;font-size:15px}
+#kcSend textarea{min-height:70px;resize:vertical}
+#kcSend .row{display:flex;gap:10px;margin-top:20px}
+#kcSend .row button{flex:1;border:0;border-radius:30px;padding:14px;font-weight:700;font-size:15px;cursor:pointer}
+#kcSend .ok{background:#BB1932;color:#fff}#kcSend .no{background:#EEF1F6;color:#1B2230}
+#kcSend .msg{margin-top:14px;font-size:14px;line-height:1.6;display:none}#kcSend .msg.on{display:block}
+</style>
+<div id="kcSend" role="dialog" aria-modal="true"><div class="bx">
+  <h3 id="kcsT"></h3><p class="sub" id="kcsS"></p>
+  <form id="kcsF" novalidate>
+    <label id="kcsL1"></label><input name="co" required>
+    <label id="kcsL2"></label><input name="nm" required>
+    <label id="kcsL3"></label><input name="ph" required>
+    <label id="kcsL4"></label><input name="em" type="email" required>
+    <label id="kcsL5"></label><textarea name="msg"></textarea>
+    <input name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+    <div class="row"><button type="button" class="no" id="kcsX"></button><button type="submit" class="ok" id="kcsB"></button></div>
+    <div class="msg" id="kcsM"></div>
+  </form>
+</div></div>
+<script>
+(function(){
+  var GAS_URL='https://script.google.com/macros/s/AKfycbwhMKo9UDzOIid9JTI2yPc_ReHQ24IUEXhlxIXBA4eaCPp2y6DO6Wj-Lovg7dx7OFo/exec', box=document.getElementById('kcSend'), F=document.getElementById('kcsF'), M=document.getElementById('kcsM'), B=document.getElementById('kcsB'), cur=null;
+  function zh(){return document.body.classList.contains('zh')||document.documentElement.lang==='zh'}
+  function txt(){var z=zh();
+    document.getElementById('kcsT').textContent=cur?(z?cur.tz:cur.tk):'';
+    document.getElementById('kcsS').textContent=z?'填写联系方式后，诊断结果将直接提交给协会，负责人将免费发送详细报告。':'연락처를 남기시면 진단 결과가 협회로 바로 접수되고, 담당자가 상세 자료를 무료로 보내드립니다.';
+    document.getElementById('kcsL1').textContent=z?'公司名称 *':'회사명 *';
+    document.getElementById('kcsL2').textContent=z?'联系人 / 职务 *':'담당자 · 직함 *';
+    document.getElementById('kcsL3').textContent=z?'电话 *':'연락처 *';
+    document.getElementById('kcsL4').textContent=z?'邮箱 *':'이메일 *';
+    document.getElementById('kcsL5').textContent=z?'补充说明（可选）':'추가 요청사항 (선택)';
+    document.getElementById('kcsX').textContent=z?'取消':'취소';
+    B.textContent=z?'提交':'접수하기';}
+  function close(){box.classList.remove('on');M.classList.remove('on');F.reset();}
+  document.getElementById('kcsX').onclick=close;
+  box.addEventListener('click',function(e){if(e.target===box)close()});
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('#mkMail,#srMail'); if(!a)return;
+    e.preventDefault(); e.stopPropagation();
+    var h=a.getAttribute('href')||'', q=h.indexOf('?')>=0?h.slice(h.indexOf('?')+1):'', p={};
+    q.split('&').forEach(function(kv){var i=kv.indexOf('=');if(i>0){try{p[kv.slice(0,i)]=decodeURIComponent(kv.slice(i+1))}catch(err){}}});
+    cur = a.id==='mkMail'
+      ? {code:'KCAI03', src:'kcstsa.or.kr AI 중국 마케팅 진단', tk:'AI 중국 마케팅 진단 결과 보내기', tz:'提交AI中国营销诊断结果', subj:p.subject||'[KCAI_코드03] AI 중국 마케팅 진단', body:p.body||''}
+      : {code:'KCAI04', src:'kcstsa.or.kr 한중 B2B 소싱 요청', tk:'B2B 소싱 요청 보내기', tz:'提交B2B采购需求', subj:p.subject||'[KCAI_코드04] 한중 B2B 소싱 요청', body:p.body||''};
+    txt(); box.classList.add('on'); F.co.focus();
+  },true);
+  F.addEventListener('submit',function(e){
+    e.preventDefault(); var z=zh();
+    if(F._honey.value)return;
+    if(!F.co.value.trim()||!F.nm.value.trim()||!F.ph.value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(F.em.value.trim())){
+      M.textContent=z?'请填写所有必填项（*）并确认邮箱格式。':'필수 항목(*)을 모두 입력하고 이메일 형식을 확인해 주세요.';M.style.color='#BB1932';M.classList.add('on');return;}
+    var d=new Date(),pd=function(n){return (n<10?'0':'')+n};
+    var no=cur.code+'-'+String(d.getFullYear()).slice(2)+pd(d.getMonth()+1)+pd(d.getDate())+'-'+pd(d.getHours())+pd(d.getMinutes())+pd(d.getSeconds());
+    var body=(cur.body||'').replace(/\n\n회사명:\n담당자·연락처:[\s\S]*$/,'');
+    var summary=cur.subj+' — '+no+'\n'+body+'\n\n회사명: '+F.co.value+'\n담당자: '+F.nm.value+'\n연락처: '+F.ph.value+'\n이메일: '+F.em.value+'\n추가 요청: '+(F.msg.value||'-')+'\n작성 언어: '+(z?'中文':'한국어')+'\n\n접수 경로: '+cur.src;
+    B.disabled=true;B.style.opacity=.6;M.style.color='#1B2230';M.textContent=z?'正在提交…':'접수 중입니다…';M.classList.add('on');
+    fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify({no:no,source:cur.src,co:F.co.value,nm:F.nm.value,ph:F.ph.value,em:F.em.value,ind:cur.code,msg:F.msg.value||'-',member:false,summary:summary})})
+    .then(function(){M.style.color='#0E7A3B';M.textContent=z?('✓ 已提交（编号 '+no+'）。协会负责人将尽快与您联系。'):('✓ 접수되었습니다. (접수번호 '+no+') 협회 담당자가 빠르게 연락드리겠습니다.');
+      F.co.value=F.nm.value=F.ph.value=F.em.value=F.msg.value='';setTimeout(close,3500);})
+    .catch(function(){M.style.color='#BB1932';M.textContent=z?'提交失败，请稍后重试或发送邮件至 kcstsa@nate.com。':'전송에 실패했습니다. 잠시 후 다시 시도하시거나 kcstsa@nate.com 으로 보내 주세요.';})
+    .then(function(){B.disabled=false;B.style.opacity=1;});
+  });
+})();
+</script>
 </body>
 </html>
