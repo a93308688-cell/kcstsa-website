@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한중과학기술서비스협회 KCSTSA</title>
+<meta name="description" content="한중과학기술서비스협회(KCSTSA) — 한·중 기업과 기관의 투자유치, 기술협력, 시장진출을 실질적 성과로 연결하는 한·중 과학기술 협력 플랫폼">
+<meta name="theme-color" content="#0E2A54">
+<meta property="og:title" content="한중과학기술서비스협회 KCSTSA">
+<meta property="og:description" content="신뢰를 성과로 잇는 한·중 과학기술 협력 플랫폼">
+<link rel="icon" type="image/png" href="img01.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --navy:#0E2A54; --navy2:#10356D; --navy3:#173F7A; --red:#BB1932; --red2:#D42A45;
+  --ink:#1B2230; --body:#4A5568; --muted:#7A8496; --line:#E3E7EE; --bg:#F4F6FA; --white:#fff;
+  --ko:'Pretendard','Noto Sans KR',system-ui,sans-serif;
+  --en:'Montserrat','Pretendard','Noto Sans KR',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--ko);color:var(--ink);background:#fff;line-height:1.75;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.zh{font-family:'Noto Sans SC',var(--ko)}
+body.zh .ko, body:not(.zh) .zh{display:none!important}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+section{padding:120px 0}
+.bg{background:var(--bg)}
+
+/* section titles — official style */
+.st{text-align:center;margin-bottom:64px}
+.st .en{font-family:var(--en);font-weight:700;font-size:14px;letter-spacing:.32em;color:var(--red);text-transform:uppercase;display:block;margin-bottom:14px}
+.st h2{font-size:clamp(28px,3.2vw,42px);font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1.3}
+.st p{margin-top:16px;color:var(--body);font-size:17px}
+.st.left{text-align:left}
+.st.light h2{color:#fff}.st.light p{color:#B9C6DA}.st.light .en{color:#FF6B7F}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,box-shadow .3s}
+.hd{height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:block;height:46px}
+.logo img{height:46px;width:auto}
+.logo .dark{display:none}
+header.on{background:#fff;box-shadow:0 2px 20px rgba(14,42,84,.08)}
+header.on .logo .light{display:none}
+header.on .logo .dark{display:block}
+nav ul{display:flex;gap:38px;list-style:none}
+nav a{font-size:16px;font-weight:600;color:#fff;transition:color .2s;position:relative;padding:8px 0}
+header.on nav a{color:var(--ink)}
+nav a:hover{color:var(--red2)}
+header.on nav a:hover{color:var(--red)}
+.hd-r{display:flex;align-items:center;gap:14px}
+.lang{display:flex;border:1px solid rgba(255,255,255,.5);border-radius:40px;overflow:hidden}
+header.on .lang{border-color:var(--line)}
+.lang button{background:none;border:0;color:#fff;font-size:13px;font-weight:600;padding:7px 14px}
+header.on .lang button{color:var(--muted)}
+.lang button.sel{background:var(--red);color:#fff!important}
+.burger{display:none;background:none;border:0;width:30px;height:22px;position:relative}
+.burger i{position:absolute;left:0;right:0;height:2px;background:#fff;transition:.3s}
+header.on .burger i{background:var(--ink)}
+.burger i:nth-child(1){top:2px}.burger i:nth-child(2){top:10px}.burger i:nth-child(3){top:18px}
+
+/* hero slider */
+.hero{position:relative;height:100vh;min-height:640px;color:#fff;overflow:hidden;background:var(--navy)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
+.slide.act{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;object-position:center 72%;transform:scale(1.08);transition:transform 7s ease}
+.slide.act img{transform:scale(1)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,24,50,.72) 0%,rgba(9,24,50,.62) 45%,rgba(9,24,50,.9) 100%)}
+.hero-in{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px}
+.hero .en{font-family:var(--en);font-weight:700;letter-spacing:.5em;font-size:clamp(13px,1.3vw,17px);opacity:.9;margin-bottom:22px;padding-left:.5em}
+.hero h1{font-size:clamp(40px,6vw,80px);font-weight:800;letter-spacing:-.03em;line-height:1.15;text-shadow:0 4px 30px rgba(0,0,0,.3)}
+.hero .lead{margin-top:24px;font-size:clamp(16px,1.6vw,21px);font-weight:400;max-width:820px;opacity:.95;line-height:1.7}
+.hero .btns{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:50px;font-weight:700;font-size:16px;transition:.25s;border:2px solid transparent}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red2)}
+.btn-line{border-color:rgba(255,255,255,.75);color:#fff}
+.btn-line:hover{background:#fff;color:var(--navy)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy3)}
+.dots{position:absolute;z-index:3;bottom:120px;left:50%;transform:translateX(-50%);display:flex;gap:10px}
+.dots button{width:10px;height:10px;border-radius:10px;border:0;background:rgba(255,255,255,.45);transition:.3s;padding:0}
+.dots button.act{width:34px;background:#fff}
+.cap{position:absolute;z-index:3;right:28px;bottom:120px;font-size:13px;opacity:.75}
+.scroll{position:absolute;z-index:3;bottom:40px;left:50%;transform:translateX(-50%);font-family:var(--en);font-size:11px;letter-spacing:.3em;opacity:.8;display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll i{width:1px;height:40px;background:linear-gradient(#fff,transparent);animation:sc 2s infinite}
+@keyframes sc{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* numbers band */
+.nums{background:var(--navy);color:#fff;padding:0}
+.nums .wrap{display:grid;grid-template-columns:repeat(5,1fr)}
+.num{padding:46px 10px;text-align:center;border-left:1px solid rgba(255,255,255,.1)}
+.num:first-child{border-left:0}
+.num b{display:block;font-family:var(--en);font-size:clamp(32px,3.4vw,46px);font-weight:800;line-height:1.1}
+.num b small{font-size:.6em;color:var(--red2)}
+.num span{display:block;margin-top:8px;font-size:15px;color:#B9C6DA}
+
+/* greeting */
+.greet{display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:center}
+.greet-img{position:relative}
+.greet-img img{border-radius:18px;width:100%;aspect-ratio:4/3.4;object-fit:cover;box-shadow:0 30px 60px rgba(14,42,84,.18)}
+.greet-img .badge{position:absolute;left:-26px;top:-26px;background:var(--red);color:#fff;border-radius:16px;padding:24px 28px;font-family:var(--en);font-weight:800;font-size:28px;line-height:1.2;box-shadow:0 20px 40px rgba(187,25,50,.3)}
+.greet-img .badge small{display:block;font-family:var(--ko);font-weight:500;font-size:13px;margin-top:6px;opacity:.9}
+.greet-txt h3{font-size:clamp(24px,2.4vw,32px);font-weight:800;color:var(--navy);line-height:1.45;letter-spacing:-.03em;margin-bottom:26px}
+.greet-txt h3 em{font-style:normal;color:var(--red)}
+.greet-txt p{color:var(--body);font-size:16.5px;margin-bottom:14px}
+.sign{margin-top:28px;font-weight:700;font-size:18px;color:var(--navy)}
+.sign::before{content:"";display:inline-block;width:30px;height:2px;background:var(--red);vertical-align:middle;margin-right:12px}
+
+/* about */
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.mv-c{background:#fff;border-radius:18px;padding:48px;box-shadow:0 10px 40px rgba(14,42,84,.06);position:relative;overflow:hidden}
+.mv-c .en{font-family:var(--en);font-weight:800;font-size:15px;letter-spacing:.2em;color:var(--red)}
+.mv-c h3{margin:14px 0 14px;font-size:24px;font-weight:800;color:var(--navy);line-height:1.45;letter-spacing:-.02em}
+.mv-c p{color:var(--body)}
+.mv-c .big{position:absolute;right:-10px;bottom:-30px;font-family:var(--en);font-weight:800;font-size:120px;color:var(--bg);line-height:1;z-index:0;pointer-events:none}
+.mv-c > *:not(.big){position:relative;z-index:1}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:28px}
+.val{background:var(--navy);color:#fff;border-radius:18px;padding:40px;display:flex;gap:22px;align-items:flex-start}
+.val .ic{flex:none;width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:24px;font-weight:800}
+.val h4{font-size:21px;margin-bottom:6px}
+.val p{color:#B9C6DA;font-size:15px}
+.base{margin-top:28px;background:#fff;border-radius:18px;padding:36px 48px;display:grid;grid-template-columns:200px 1fr;gap:16px 40px;align-items:center;box-shadow:0 10px 40px rgba(14,42,84,.06)}
+.base h4{font-size:19px;color:var(--navy);font-weight:800}
+.base h4 small{display:block;font-size:13px;color:var(--muted);font-weight:500;margin-top:4px}
+.cities{display:flex;flex-wrap:wrap;gap:8px}
+.cities span{padding:8px 18px;border-radius:40px;background:var(--bg);font-weight:600;font-size:15px;color:var(--ink)}
+.cities span.hq{background:var(--red);color:#fff}
+
+/* programs */
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 40px rgba(14,42,84,.07);transition:.35s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(14,42,84,.14)}
+.card .ph{aspect-ratio:16/8;overflow:hidden;position:relative}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.card:hover .ph img{transform:scale(1.06)}
+.card .ph .no{position:absolute;left:24px;top:22px;font-family:var(--en);font-weight:800;color:#fff;font-size:15px;letter-spacing:.15em;background:rgba(14,42,84,.75);padding:6px 14px;border-radius:30px}
+.card .ph .key{position:absolute;right:22px;top:22px;background:var(--red);color:#fff;font-weight:700;font-size:13px;padding:6px 14px;border-radius:30px}
+.card .bd{padding:34px 38px 38px;flex:1}
+.card h3{font-size:23px;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-bottom:12px}
+.card p{color:var(--body);font-size:15.5px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tags span{font-size:13px;font-weight:600;color:var(--navy2);background:#EAF0F9;padding:5px 13px;border-radius:30px}
+
+/* events */
+.ev{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;margin-bottom:90px}
+.ev:last-child{margin-bottom:0}
+.ev.rev .ev-img{order:2}
+.ev-img{position:relative}
+.ev-img img{width:100%;aspect-ratio:16/10.5;object-fit:cover;border-radius:18px;box-shadow:0 24px 50px rgba(14,42,84,.15)}
+.ev-img .tagl{position:absolute;left:22px;bottom:22px;background:#fff;color:var(--navy);font-weight:700;font-size:13px;padding:8px 16px;border-radius:30px;box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.ev .lab{font-family:var(--en);font-weight:700;color:var(--red);letter-spacing:.2em;font-size:13px}
+.ev h3{font-size:clamp(26px,2.6vw,34px);font-weight:800;color:var(--navy);margin:10px 0 6px;letter-spacing:-.03em;line-height:1.3}
+.ev .date{color:var(--muted);font-weight:600;font-size:15px;margin-bottom:18px}
+.ev p{color:var(--body)}
+.org{margin-top:22px;border-top:1px solid var(--line)}
+.org div{display:grid;grid-template-columns:70px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.org dt{font-weight:700;color:var(--navy)}
+.org dd{color:var(--body)}
+.evn{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.evn div{flex:1;min-width:120px;background:var(--bg);border-radius:14px;padding:18px 20px}
+.evn b{display:block;font-family:var(--en);font-size:28px;font-weight:800;color:var(--navy);line-height:1.15}
+.evn span{font-size:13.5px;color:var(--muted)}
+.more{display:inline-flex;margin-top:24px;font-weight:700;color:var(--red);gap:8px;align-items:center}
+.more:hover{gap:14px}
+
+/* results */
+.res{background:linear-gradient(135deg,#0B2247 0%,#10356D 100%);color:#fff;position:relative;overflow:hidden}
+.res::before{content:"KCSTSA";position:absolute;right:-40px;bottom:-60px;font-family:var(--en);font-weight:800;font-size:260px;color:rgba(255,255,255,.03);letter-spacing:-.02em;pointer-events:none}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.rc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:38px 34px;transition:.3s}
+.rc:hover{background:rgba(255,255,255,.1);transform:translateY(-4px)}
+.rc .k{font-size:13px;font-weight:700;color:#FF8A9A;letter-spacing:.05em}
+.rc b{display:block;font-family:var(--en);font-size:clamp(40px,4vw,56px);font-weight:800;line-height:1.1;margin:14px 0 6px}
+.rc .u{font-size:15px;color:#DCE4F0;font-weight:600}
+.rc p{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);color:#AFC0D8;font-size:14.5px}
+.rc.wide{grid-column:span 3;display:grid;grid-template-columns:1fr 2fr;gap:30px;align-items:center}
+.rc.wide p{margin:0;padding:0 0 0 30px;border-top:0;border-left:1px solid rgba(255,255,255,.12)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px}
+.gal figure{position:relative;overflow:hidden;border-radius:14px}
+.gal figure.w{grid-column:span 2}
+.gal figure.h{grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 18px 14px;background:linear-gradient(transparent,rgba(9,24,50,.8));color:#fff;font-size:14px;font-weight:600}
+
+/* history */
+.tl{position:relative;max-width:980px;margin:0 auto}
+.tl::before{content:"";position:absolute;left:150px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tr{display:grid;grid-template-columns:150px 1fr;position:relative;padding:0 0 46px}
+.tr:last-child{padding-bottom:0}
+.tr .y{font-family:var(--en);font-size:30px;font-weight:800;color:var(--navy);line-height:1}
+.tr .d{padding-left:46px;position:relative}
+.tr .d::before{content:"";position:absolute;left:-7px;top:6px;width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--red)}
+.tr h4{font-size:19px;font-weight:700;color:var(--ink);line-height:1.5}
+.tr p{color:var(--body);font-size:15px;margin-top:4px}
+
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1.2fr;gap:50px}
+.ct-info{background:var(--navy);color:#fff;border-radius:18px;padding:50px 46px;position:relative;overflow:hidden}
+.ct-info h3{font-size:26px;font-weight:800;margin-bottom:10px}
+.ct-info > p{color:#B9C6DA;margin-bottom:30px}
+.ci{list-style:none}
+.ci li{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:16px 0;border-top:1px solid rgba(255,255,255,.12);font-size:15.5px}
+.ci li > span{color:#FF8A9A;font-weight:700;font-size:14px}
+.ci a:hover{text-decoration:underline}
+form{background:#fff;border-radius:18px;padding:46px;box-shadow:0 10px 40px rgba(14,42,84,.08)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{margin-bottom:18px}
+.f label{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:7px}
+.f input,.f select,.f textarea{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:14px 16px;font-size:15px;font-family:inherit;color:var(--ink);transition:.2s}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--navy2);background:#fff}
+.f textarea{min-height:140px;resize:vertical}
+form .btn{border:0;width:100%;justify-content:center}
+.note{display:none;margin-top:14px;font-size:14px;color:var(--navy);background:#EAF0F9;padding:12px 16px;border-radius:10px}
+.note.show{display:block}
+
+footer{background:#0A1C3A;color:#8C9AB3;padding:60px 0 30px;font-size:14px}
+.ft{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.ft img{height:44px;width:auto}
+.ft-info{line-height:2}
+.ft-info b{color:#fff;font-weight:600}
+.ft-links{display:flex;gap:22px;flex-wrap:wrap;margin-top:16px}
+.ft-links a:hover{color:#fff}
+.copy{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);font-size:13px}
+.totop{position:fixed;right:24px;bottom:24px;width:52px;height:52px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--en);font-weight:700;font-size:12px;box-shadow:0 8px 24px rgba(187,25,50,.35);z-index:90;opacity:0;pointer-events:none;transition:.3s}
+.totop.show{opacity:1;pointer-events:auto}
+
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}
+
+@media(max-width:1080px){
+  nav{position:fixed;top:84px;left:0;right:0;bottom:0;background:#fff;padding:20px 28px;display:none;overflow:auto}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0}
+  nav a{display:block;color:var(--ink)!important;font-size:19px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .burger{display:block}
+  .greet,.ev,.ct{grid-template-columns:1fr;gap:44px}
+  .ev.rev .ev-img{order:0}
+  .greet-img .badge{left:16px;top:-22px}
+  .rg{grid-template-columns:1fr 1fr}
+  .rc.wide{grid-column:span 2}
+}
+@media(max-width:720px){
+  section{padding:84px 0}
+  .wrap{padding:0 20px}
+  .nums .wrap{grid-template-columns:repeat(2,1fr)}
+  .num{border-left:0;border-top:1px solid rgba(255,255,255,.1);padding:30px 6px}
+  .num:last-child{grid-column:span 2}
+  .mv,.vals,.pg,.rg,.row{grid-template-columns:1fr}
+  .rc.wide{grid-column:auto;grid-template-columns:1fr}
+  .rc.wide p{padding:16px 0 0;border-left:0;border-top:1px solid rgba(255,255,255,.12)}
+  .base{grid-template-columns:1fr;padding:30px}
+  .mv-c,.val,form,.ct-info{padding:32px 26px}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+  .gal figure.w{grid-column:span 2}
+  .tl::before{left:6px}
+  .tr{grid-template-columns:1fr;padding-left:36px}
+  .tr .d{padding-left:0}
+  .tr .d::before{left:-37px;top:-24px}
+  .tr .y{margin-bottom:8px;font-size:24px}
+  .cap{display:none}
+  .hero h1{font-size:31px}
+  .hero .btns .btn{padding:14px 26px}
+  .logo,.logo img{height:38px}
+}
+
+/* KCAI_코드03 AI China marketing */
+#kcai3{background:#fff}
+.kc-badge.red{background:var(--red)}
+.mk-plat{display:flex;justify-content:center;gap:12px;margin:-6px 0 34px;flex-wrap:wrap}
+.mk-plat>span{font-weight:700;font-size:15px;border-radius:30px;padding:8px 20px;border:1px solid var(--line);color:var(--navy);background:#fff}
+.mk-plat .dy{background:#111;color:#fff;border-color:#111}
+.mk-plat .xhs{background:#ff2442;color:#fff;border-color:#ff2442}
+.mk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.mk-card{background:#F7F9FC;border:1px solid var(--line);border-radius:18px;padding:32px 26px 28px}
+.mk-card .ic{width:46px;height:46px;border-radius:12px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--en);font-weight:800;font-size:16px;margin-bottom:16px}
+.mk-card h3{font-size:20px;color:var(--navy);margin-bottom:10px;letter-spacing:-.02em;line-height:1.35}
+.mk-card p{font-size:15px;color:var(--body);line-height:1.7}
+.mk-card ul{margin:12px 0 0;padding-left:18px;font-size:14px;color:var(--muted);line-height:1.8}
+.mk-flow{margin-top:40px;display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.mk-flow div{padding:22px 14px;text-align:center;border-left:1px solid var(--line);background:#fff}
+.mk-flow div:first-child{border-left:0}
+.mk-flow b{display:block;font-family:var(--en);color:var(--red);font-size:13px;letter-spacing:.1em}
+.mk-flow span{display:block;margin-top:6px;font-size:15px;font-weight:600;color:var(--navy)}
+@media(max-width:1000px){.mk-grid{grid-template-columns:repeat(2,1fr)}.mk-flow{grid-template-columns:repeat(2,1fr)}.mk-flow div{border-left:0;border-top:1px solid var(--line)}}
+@media(max-width:600px){.mk-grid{grid-template-columns:1fr}}
+/* KCAI_코드03 self-diagnosis */
+.mkd{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 40px rgba(14,42,84,.07);padding:40px 44px;margin-bottom:46px}
+.mkd-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.mkd-hd h3{font-size:24px;color:var(--navy);letter-spacing:-.02em;line-height:1.4}
+.mkd-hd p{color:var(--body);font-size:15px;margin-top:6px}
+.mkd-hd .tg{background:var(--red);color:#fff;font-weight:700;font-size:13px;border-radius:20px;padding:5px 14px;white-space:nowrap}
+.mkd-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px}
+.mkd-q{display:block}
+.mkd-q.full{grid-column:1/-1}
+.mkd-l{display:flex;gap:10px;align-items:baseline;font-weight:700;color:var(--ink);font-size:15.5px;margin-bottom:10px}
+.mkd-l i{font-style:normal;font-family:var(--en);color:var(--red);font-size:13px;letter-spacing:.06em}
+.mkd-l small{font-weight:500;color:var(--muted);font-size:13px}
+.mkd-in,.mkd-ta{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:13px 15px;font-size:15px;font-family:inherit;color:var(--ink)}
+.mkd-ta{min-height:84px;resize:vertical}
+.mkd-ops{display:flex;flex-wrap:wrap;gap:8px}
+.mkd-ops button{border:1px solid var(--line);background:#fff;border-radius:30px;padding:10px 16px;font-size:14.5px;font-family:inherit;color:var(--ink);cursor:pointer;transition:.15s}
+.mkd-ops button:hover{border-color:var(--navy)}
+.mkd-ops button.on{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:600}
+.mkd-go{margin-top:28px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.mkd-go .btn{border:0;cursor:pointer;font-family:inherit}
+.mkd-err{color:var(--red);font-size:14px;font-weight:600}
+.mkd-res{scroll-margin-top:100px;margin-top:34px;border-top:2px solid var(--navy);padding-top:30px;display:none}
+.mkd-res.on{display:block}
+.mkd-top{display:grid;grid-template-columns:240px 1fr;gap:30px;align-items:center}
+.mkd-score{background:var(--navy);color:#fff;border-radius:18px;padding:26px 20px;text-align:center}
+.mkd-score b{display:block;font-family:var(--en);font-size:54px;font-weight:800;line-height:1}
+.mkd-score b small{font-size:.4em;color:#B9C6DA}
+.mkd-score span{display:block;margin-top:8px;font-size:14px;color:#B9C6DA}
+.mkd-score em{display:inline-block;margin-top:12px;font-style:normal;background:var(--red);border-radius:20px;padding:4px 14px;font-size:13px;font-weight:700}
+.mkd-bars h4,.mkd-box h4{font-size:16px;color:var(--navy);margin-bottom:12px}
+.mkd-bar{display:grid;grid-template-columns:120px 1fr 48px;gap:12px;align-items:center;margin-bottom:10px;font-size:14.5px;font-weight:600}
+.mkd-bar .mkd-tr{height:14px;background:var(--bg);border-radius:10px;overflow:hidden}
+.mkd-bar .mkd-tr i{display:block;height:100%;border-radius:10px;transition:width 1s ease}
+.mkd-bar b{font-family:var(--en);text-align:right}
+.mkd-boxes{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
+.mkd-box{background:var(--bg);border-radius:16px;padding:24px 24px}
+.mkd-box ol,.mkd-box ul{margin:0;padding-left:20px;line-height:1.8;font-size:14.5px;color:var(--body)}
+.mkd-box li{margin-bottom:4px}
+.mkd-box mark{background:#FFDCE1;color:var(--red);font-weight:700;border-radius:4px;padding:0 4px}
+.mkd-ok{color:#0b7d6e;font-weight:700}
+.mkd-cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.mkd-cta p{font-size:13px;color:var(--muted);width:100%}
+@media(max-width:900px){.mkd{padding:28px 20px}.mkd-grid,.mkd-top,.mkd-boxes{grid-template-columns:1fr}.mkd-bar{grid-template-columns:96px 1fr 44px}}
+/* KCAI_코드04 B2B sourcing agent */
+#kcai4{background:linear-gradient(180deg,#F4F6FA 0%,#fff 100%)}
+.kc-badge.teal{background:#0E8F80}
+.sr-in2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sr-kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.sr-kw span{background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 13px;font-size:14px;font-weight:600;color:var(--navy)}
+.sr-rfq{white-space:pre-wrap;background:#fff;border:1px dashed #b9c6da;border-radius:12px;padding:16px 18px;font-size:14px;line-height:1.75;color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif}
+.sr-tl{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
+.sr-tl div{background:#fff;border-radius:12px;padding:12px 10px;text-align:center;border:1px solid var(--line)}
+.sr-tl b{display:block;font-family:var(--en);color:#0E8F80;font-size:12px;letter-spacing:.08em}
+.sr-tl span{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-top:4px}
+.sr-tl small{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.mk-flow.teal b{color:#0E8F80}
+@media(max-width:900px){.sr-tl{grid-template-columns:repeat(2,1fr)}}
+/* KCAI AI matching */
+#kcai{background:linear-gradient(180deg,#fff 0%,#F4F6FA 100%)}
+.kc-badge{display:inline-block;font-family:var(--en);font-weight:700;font-size:13px;letter-spacing:.08em;color:#fff;background:var(--navy);border-radius:30px;padding:6px 16px;margin-bottom:16px}
+.kc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
+.kc-step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px 26px 30px;position:relative;box-shadow:0 10px 30px rgba(14,42,84,.06)}
+.kc-step .n{font-family:var(--en);font-weight:800;font-size:15px;color:var(--red);letter-spacing:.1em}
+.kc-step h3{font-size:21px;color:var(--navy);margin:10px 0 10px;letter-spacing:-.02em;line-height:1.35}
+.kc-step p{font-size:15px;color:var(--body);line-height:1.7}
+.kc-step .free{position:absolute;top:22px;right:22px;background:var(--red);color:#fff;font-size:12px;font-weight:700;border-radius:20px;padding:3px 11px}
+.kc-band{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);background:var(--navy);border-radius:20px;color:#fff;overflow:hidden}
+.kc-band div{padding:34px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.1)}
+.kc-band div:first-child{border-left:0}
+.kc-band b{display:block;font-family:var(--en);font-size:clamp(28px,3vw,40px);font-weight:800;line-height:1.1}
+.kc-band b small{font-size:.6em;color:var(--red2)}
+.kc-band span{display:block;margin-top:8px;font-size:15px;color:#B9C6DA}
+.kc-cta{margin:0 0 46px;border:2px solid var(--red);box-shadow:0 14px 40px rgba(187,25,50,.10);display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:40px 44px}
+.kc-cta h3{font-size:24px;color:var(--navy);letter-spacing:-.02em;line-height:1.4}
+.kc-cta p{margin-top:10px;color:var(--body);font-size:16px}
+.kc-cta .acts{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.kc-cta .btn{justify-content:center}
+.kc-note{font-size:13px!important;color:var(--body);margin-top:2px!important;line-height:1.55}.kc-note a{color:var(--red);font-weight:600}
+.kc-cn{margin-top:22px;text-align:center;font-size:15px;color:var(--muted)}
+.kc-cn a{color:var(--red);font-weight:700}
+@media(max-width:1000px){.kc-steps{grid-template-columns:repeat(2,1fr)}.kc-cta{grid-template-columns:1fr;padding:32px 26px}}
+@media(max-width:600px){.kc-steps{grid-template-columns:1fr}.kc-band{grid-template-columns:1fr}.kc-band div{border-left:0;border-top:1px solid rgba(255,255,255,.1)}.kc-band div:first-child{border-top:0}}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap hd">
+    <a href="#home" class="logo" aria-label="한중과학기술서비스협회">
+      <img class="light" src="img02.png" alt="한중과학기술서비스협회 KCSTSA">
+      <img class="dark" src="img03.png" alt="한중과학기술서비스협회 KCSTSA">
+    </a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#greeting"><span class="ko">협회소개</span><span class="zh">关于协会</span></a></li>
+        <li><a href="#programs"><span class="ko">사업분야</span><span class="zh">业务领域</span></a></li>
+        <li><a href="#kcai"><span class="ko">AI 매칭</span><span class="zh">AI对接</span></a></li>
+        <li><a href="#kcai3"><span class="ko">AI 마케팅</span><span class="zh">AI营销</span></a></li>
+        <li><a href="#kcai4"><span class="ko">AI 소싱</span><span class="zh">AI采购</span></a></li>
+        <li><a href="#events"><span class="ko">대표행사</span><span class="zh">品牌活动</span></a></li>
+        <li><a href="#results"><span class="ko">주요성과</span><span class="zh">合作成果</span></a></li>
+        <li><a href="#history"><span class="ko">연혁</span><span class="zh">发展历程</span></a></li>
+        <li><a href="#contact"><span class="ko">협력문의</span><span class="zh">合作咨询</span></a></li>
+      </ul>
+    </nav>
+    <div class="hd-r">
+      <div class="lang"><button id="bKo" class="sel" type="button">KOR</button><button id="bZh" type="button">中文</button></div>
+      <button class="burger" id="burger" type="button" aria-label="메뉴"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home" style="padding:0">
+  <div class="slide act"><img src="img04.jpg" alt=""></div>
+  <div class="slide"><img src="img05.jpg" alt=""></div>
+  <div class="slide"><img src="img06.jpg" alt=""></div>
+  <div class="hero-in">
+    <div class="en">KCSTSA</div>
+    <h1><span class="ko">한중과학기술서비스협회</span><span class="zh">韩中科学技术服务协会</span></h1>
+    <p class="lead"><span class="ko">한·중 과학기술과 비즈니스 교류를 촉진하고,<br>양국 기업과 기관의 투자·기술협력·시장진출을 실질적 성과로 연결합니다.</span><span class="zh">促进中韩科技与商务交流，<br>将两国企业与机构的投资、技术合作与市场拓展转化为实际成果。</span></p>
+    <div class="btns">
+      <a href="https://app.formasty.com/f/pub_d22a5727009e46208de75fc083d6f1c1" target="_blank" rel="noopener" class="btn btn-red"><span class="ko">무료 AI 진단 신청</span><span class="zh">免费 AI 诊断（韩国企业）</span></a>
+      <a href="#kcai" class="btn btn-red"><span class="ko">AI 매칭 알아보기</span><span class="zh">了解 AI 对接</span></a>
+      <a href="#contact" class="btn btn-red"><span class="ko">협력 문의하기</span><span class="zh">合作咨询</span></a>
+    </div>
+  </div>
+  <div class="dots" id="dots"><button class="act" aria-label="1"></button><button aria-label="2"></button><button aria-label="3"></button></div>
+  <div class="cap" id="cap"></div>
+  <div class="scroll">SCROLL<i></i></div>
+</section>
+
+<!-- NUMBERS -->
+<section class="nums">
+  <div class="wrap">
+    <div class="num"><b data-n="1000">1,000<small>+</small></b><span class="ko">중·한 기업 파트너</span><span class="zh">中韩企业伙伴</span></div>
+    <div class="num"><b data-n="200">200<small>+</small></b><span class="ko">투자 파트너 (AC·VC·PE·신기사)</span><span class="zh">投资伙伴 (AC·VC·PE)</span></div>
+    <div class="num"><b data-n="60">60<small>+</small></b><span class="ko">정부·공공기관</span><span class="zh">政府及公共机构</span></div>
+    <div class="num"><b data-n="20">20<small>+</small></b><span class="ko">대학·연구기관</span><span class="zh">高校及科研机构</span></div>
+    <div class="num"><b data-n="100">100<small>+</small></b><span class="ko">중국 언론 네트워크</span><span class="zh">中国媒体网络</span></div>
+  </div>
+</section>
+
+<!-- GREETING -->
+<section id="greeting">
+  <div class="wrap greet">
+    <div class="greet-img rv">
+      <img src="img07.jpg" alt="한·중 협력 행사 단체사진" style="object-position:50% 92%">
+      <div class="badge">100% − 1% = 0%<small><span class="ko">협회의 업무 원칙</span><span class="zh">协会工作原则</span></small></div>
+    </div>
+    <div class="greet-txt rv d1">
+      <div class="st left" style="margin-bottom:24px"><span class="en">Greeting</span><h2><span class="ko">인사말</span><span class="zh">协会致辞</span></h2></div>
+      <div class="ko">
+        <h3>신뢰를 기반으로 한·중을 잇고,<br><em>성과로 신뢰를 증명</em>하겠습니다.</h3>
+        <p>한중과학기술서비스협회 홈페이지를 찾아 주신 여러분께 감사드립니다.</p>
+        <p>한중과학기술서비스협회(KCSTSA)는 중국 산둥성 웨이하이에 본부를 두고, 한·중 기업과 기관이 투자, 기술협력, 시장진출에서 실질적인 성과를 거둘 수 있도록 지원하는 협력 플랫폼입니다.</p>
+        <p>우리 협회는 중국 정부와 산업단지, 투자기관, 대학과 쌓아 온 신뢰를 바탕으로 사업화, 인증, 투자유치, 현지 진출의 전 과정을 함께 설계하고 끝까지 책임지겠습니다. 단 1%의 소홀함도 전체의 신뢰를 무너뜨린다는 마음으로 모든 협력을 정석대로, 성실하게 수행하겠습니다.</p>
+        <p>한·중 과학기술 협력의 새로운 기준을 만들어 가는 길에 여러분의 관심과 동행을 부탁드립니다.</p>
+        <div class="sign">한중과학기술서비스협회 임직원 일동</div>
+      </div>
+      <div class="zh">
+        <h3>以信任连接中韩，<br><em>以成果证明信任</em>。</h3>
+        <p>衷心感谢您访问韩中科学技术服务协会官方网站。</p>
+        <p>韩中科学技术服务协会（KCSTSA）总部位于中国山东省威海市，是帮助中韩企业与机构在投资、技术合作和市场拓展中取得实际成果的合作平台。</p>
+        <p>我们将依托与中国政府、产业园区、投资机构及高校积累的信任，与合作方共同设计产业化、认证、招商引资及落地发展的全过程，并负责到底。我们以"哪怕1%的疏忽也会让全部信任归零"的态度，规范、诚信地对待每一项合作。</p>
+        <p>诚挚期待您与我们携手，共同树立中韩科技合作的新标准。</p>
+        <div class="sign">韩中科学技术服务协会 全体员工</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="bg">
+  <div class="wrap">
+    <div class="st rv"><span class="en">About KCSTSA</span><h2><span class="ko">미션 · 비전</span><span class="zh">使命 · 愿景</span></h2><p><span class="ko">인맥이나 형식적 교류가 아니라, 역량과 성과로 증명하는 협력을 지향합니다.</span><span class="zh">我们追求的不是人脉或形式交流，而是以能力和成果证明的合作。</span></p></div>
+    <div class="mv">
+      <div class="mv-c rv"><span class="en">MISSION</span><h3><span class="ko">한·중 협력을 실질적 성과로<br>연결하는 실행형 플랫폼</span><span class="zh">将中韩合作转化为<br>实际成果的实干型平台</span></h3><p><span class="ko">중국 정부·기관·기업 네트워크와 투자·기술·산업 협력 경험을 바탕으로 투자유치, 시장진출, 기술협력, 사업화, 인증, 정책 연계까지 전 주기를 지원합니다.</span><span class="zh">依托中国政府、机构及企业网络与投资、技术、产业合作经验，提供涵盖招商引资、市场准入、技术合作、产业化、认证及政策对接的全周期支持。</span></p><div class="big">M</div></div>
+      <div class="mv-c rv d1"><span class="en">VISION</span><h3><span class="ko">성과로 신뢰를 증명하는<br>한·중 과학기술·산업 협력 플랫폼</span><span class="zh">以成果证明信任的<br>中韩科技与产业合作平台</span></h3><p><span class="ko">과학기술, 의료·바이오, 첨단산업, 투자 분야에서 한·중 산업협력의 새로운 기준을 세우고 지속 가능한 협력 생태계를 선도합니다.</span><span class="zh">在科技、医疗生物、高端产业及投资领域树立中韩产业合作新标准，引领可持续的合作生态。</span></p><div class="big">V</div></div>
+    </div>
+    <div class="vals">
+      <div class="val rv"><div class="ic">信</div><div><h4><span class="ko">신뢰</span><span class="zh">信任</span></h4><p><span class="ko">약속한 것은 끝까지 지킵니다.</span><span class="zh">言出必行，守信到底。</span></p></div></div>
+      <div class="val rv d1"><div class="ic">行</div><div><h4><span class="ko">실행</span><span class="zh">实干</span></h4><p><span class="ko">교류에서 멈추지 않고 계약·법인·투자까지 실행합니다.</span><span class="zh">不止于交流，落实到签约、法人与投资。</span></p></div></div>
+      <div class="val rv d2"><div class="ic">果</div><div><h4><span class="ko">성과</span><span class="zh">成果</span></h4><p><span class="ko">숫자로 확인되는 결과로 증명합니다.</span><span class="zh">以可量化的结果证明价值。</span></p></div></div>
+    </div>
+    <div class="base rv">
+      <h4><span class="ko">산둥성 핵심 거점</span><span class="zh">山东省核心据点</span></h4>
+      <div class="cities"><span><span class="ko">지난</span><span class="zh">济南</span></span><span><span class="ko">칭다오</span><span class="zh">青岛</span></span><span><span class="ko">웨이팡</span><span class="zh">潍坊</span></span><span><span class="ko">옌타이</span><span class="zh">烟台</span></span><span><span class="ko">웨이하이</span><span class="zh">威海</span></span></div>
+      <h4><span class="ko">중국 전역 네트워크</span><span class="zh">全国网络</span></h4>
+      <div class="cities"><span><span class="ko">베이징</span><span class="zh">北京</span></span><span><span class="ko">상하이</span><span class="zh">上海</span></span><span><span class="ko">광저우</span><span class="zh">广州</span></span><span><span class="ko">선전</span><span class="zh">深圳</span></span><span><span class="ko">하얼빈</span><span class="zh">哈尔滨</span></span><span><span class="ko">닝보</span><span class="zh">宁波</span></span><span><span class="ko">옌청</span><span class="zh">盐城</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="wrap">
+    <div class="st rv"><span class="en">Business Areas</span><h2><span class="ko">4대 사업분야</span><span class="zh">四大业务领域</span></h2><p><span class="ko">기업의 단계와 목적에 맞춰 진출 전략부터 현지 실행까지 원스톱으로 지원합니다.</span><span class="zh">根据企业阶段与目标，提供从进入战略到本地落地的一站式支持。</span></p></div>
+    <div class="pg">
+      <div class="card rv">
+        <div class="ph"><img src="img08.jpg" alt="" style="object-position:center 58%"><span class="no">01</span><span class="key"><span class="ko">핵심사업</span><span class="zh">重点业务</span></span></div>
+        <div class="bd"><h3><span class="ko">의료기기·바이오 중국진출</span><span class="zh">医疗器械·生物进入中国</span></h3>
+        <p><span class="ko">CKMDM과 한중(웨이하이) 의료산업 융합발전대회의 실적을 바탕으로, 한국 의료기기·바이오 기업의 중국 진출을 처음부터 끝까지 설계합니다.</span><span class="zh">依托CKMDM与中韩（威海）医疗产业融合发展大会的实绩，全程设计韩国医疗器械及生物企业进入中国的路径。</span></p>
+        <div class="tags"><span class="ko">산업단지 입주</span><span class="zh">入驻产业园</span><span class="ko">현지 생산</span><span class="zh">本地生产</span><span>NMPA</span><span class="ko">유통 채널</span><span class="zh">分销渠道</span><span class="ko">투자 매칭</span><span class="zh">投资对接</span></div></div>
+      </div>
+      <div class="card rv d1">
+        <div class="ph"><img src="img09.jpg" alt="" style="object-position:center 55%"><span class="no">02</span></div>
+        <div class="bd"><h3><span class="ko">한·중 투자유치 · 펀드 연계</span><span class="zh">中韩招商引资 · 基金对接</span></h3>
+        <p><span class="ko">AC·VC·PE·신기사 200곳 이상의 투자 파트너와 정기 IR을 통해 한국 기업의 중국 투자유치와 중국 자본의 한국 투자를 양방향으로 연결합니다.</span><span class="zh">与200余家投资伙伴开展定期路演，双向连接韩国企业引进中国资本与中国资本投资韩国。</span></p>
+        <div class="tags"><span>IR</span><span class="ko">투자설명회</span><span class="zh">投资说明会</span><span class="ko">양방향 매칭</span><span class="zh">双向对接</span></div></div>
+      </div>
+      <div class="card rv">
+        <div class="ph"><img src="img10.jpg" alt="" style="object-position:center 42%"><span class="no">03</span></div>
+        <div class="bd"><h3><span class="ko">과학기술 교류 · 인재 협력</span><span class="zh">科技交流 · 人才合作</span></h3>
+        <p><span class="ko">한·중 대학과 연구기관의 공동연구, 산둥성 인재정책(태산인재공정) 연계로 연구성과가 기업의 제품과 시장으로 이어지도록 설계합니다.</span><span class="zh">通过中韩高校与科研机构联合研究、对接山东省人才政策（泰山人才工程），让研究成果走向企业产品与市场。</span></p>
+        <div class="tags"><span class="ko">공동연구</span><span class="zh">联合研究</span><span class="ko">태산인재공정</span><span class="zh">泰山人才工程</span><span class="ko">산학협력</span><span class="zh">产学合作</span></div></div>
+      </div>
+      <div class="card rv d1">
+        <div class="ph"><img src="img11.jpg" alt="" style="object-position:center 45%"><span class="no">04</span></div>
+        <div class="bd"><h3><span class="ko">한·중 상호진출 통합지원</span><span class="zh">中韩双向进入综合支持</span></h3>
+        <p><span class="ko">법인 설립, 브랜드 수권, 판매 채널, 홍보, 물류까지 한 창구에서 지원하고, 중국 언론 100곳 이상의 네트워크로 현지 인지도를 함께 높입니다.</span><span class="zh">设立法人、品牌授权、销售渠道、宣传与物流一站式办理，并借助100余家中国媒体网络提升本地知名度。</span></p>
+        <div class="tags"><span class="ko">법인 설립</span><span class="zh">设立法人</span><span class="ko">브랜드 수권</span><span class="zh">品牌授权</span><span class="ko">판매 채널</span><span class="zh">销售渠道</span><span class="ko">언론 홍보</span><span class="zh">媒体宣传</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- KCAI AI MATCHING -->
+<section id="kcai">
+  <div class="wrap">
+    <div class="st rv"><span class="en">AI Matching Platform</span><div class="kc-badge">KCAI_코드01</div><h2><span class="ko">한·중 기업·투자 AI 매칭</span><span class="zh">中韩企业·投资 AI 对接平台</span></h2><p><span class="ko">AI가 분석하고, 협회가 끝까지 연결합니다.</span><span class="zh">AI 精准分析，协会全程对接到底。</span></p></div>
+    <div class="kc-cta rv">
+      <div><h3><span class="ko">진단은 무료입니다.<br>비용은 진단 후 맞춤으로 안내드립니다.</span><span class="zh">诊断完全免费，<br>费用将在诊断后为您定制说明。</span></h3>
+      <p><span class="ko">진단 결과를 바탕으로 기업 상황에 맞는 지원 방식과 비용을 협회 담당자가 따로 안내드립니다.</span><span class="zh">协会负责人将根据诊断结果，为您说明适合企业情况的支持方式与费用。</span></p></div>
+      <div class="acts"><a class="btn btn-red" href="https://app.formasty.com/f/pub_d22a5727009e46208de75fc083d6f1c1" target="_blank" rel="noopener"><span class="ko">무료 AI 진단 신청</span><span class="zh">申请免费 AI 诊断（韩国企业）</span></a><a class="btn btn-navy" href="#contact"><span class="ko">협력 문의하기</span><span class="zh">合作咨询</span></a><p class="kc-note"><span class="ko">※ 신청 화면이 열리지 않으면 브라우저 번역을 끄거나(원본 보기) <a href="mailto:kcstsa@nate.com">kcstsa@nate.com</a> 으로 회사소개서를 보내 주세요.</span><span class="zh">※ 若申请页面无法打开，请关闭浏览器翻译（查看原文），或将公司介绍发送至 <a href="mailto:kcstsa@nate.com">kcstsa@nate.com</a>。</span></p></div>
+    </div>
+    <div class="kc-steps">
+      <div class="kc-step rv"><span class="free"><span class="ko">무료</span><span class="zh">免费</span></span><span class="n">STEP 01</span><h3><span class="ko">AI 진단</span><span class="zh">AI 诊断</span></h3><p><span class="ko">기업 정보를 등록하면 AI가 중국 진출 적합도와 추천 진출 경로를 분석해 진단 리포트로 드립니다.</span><span class="zh">企业登记信息后，AI 分析进入中国的匹配度与推荐路径，并提供诊断报告。</span></p></div>
+      <div class="kc-step rv d1"><span class="n">STEP 02</span><h3><span class="ko">맞춤 매칭 추천</span><span class="zh">定制对接推荐</span></h3><p><span class="ko">협회 네트워크의 중국 기업·기관·투자사 가운데 가장 잘 맞는 상대를 찾아 추천합니다.</span><span class="zh">从协会网络中的中国企业、机构与投资方中，推荐最匹配的合作伙伴。</span></p></div>
+      <div class="kc-step rv"><span class="n">STEP 03</span><h3><span class="ko">미팅 주선</span><span class="zh">安排会谈</span></h3><p><span class="ko">온라인 또는 중국 현지 미팅을 마련하고, 통역과 현지 동행까지 지원합니다.</span><span class="zh">安排线上或中国当地会谈，并提供翻译与现场陪同。</span></p></div>
+      <div class="kc-step rv d1"><span class="n">STEP 04</span><h3><span class="ko">계약·투자 성사</span><span class="zh">签约·投资落地</span></h3><p><span class="ko">공급·합작·현지 생산·투자 계약까지 협상을 함께하고, 이후 사업이 자리 잡을 때까지 관리합니다.</span><span class="zh">共同推进供应、合资、本地生产及投资签约，并持续跟进直至项目落地。</span></p></div>
+    </div>
+    <div class="kc-band rv">
+      <div><b>14,000<small>+</small></b><span class="ko">중국 기업 데이터</span><span class="zh">中国企业数据</span></div>
+      <div><b>200<small>+</small></b><span class="ko">투자 파트너 (AC·VC·PE·신기사)</span><span class="zh">投资伙伴 (AC·VC·PE)</span></div>
+      <div><b>1,000<small>+</small></b><span class="ko">중·한 기업 파트너</span><span class="zh">中韩企业伙伴</span></div>
+    </div>
+    <p class="kc-cn"><span class="ko">한국 기술·기업을 찾는 중국 기관·기업은 <a href="#contact">협력 문의</a>로 연락해 주십시오.</span><span class="zh">寻找韩国技术与企业的中方机构及企业，请通过<a href="#contact">合作咨询</a>与我们联系。</span></p>
+  </div>
+</section>
+
+<!-- KCAI_코드03 AI CHINA MARKETING -->
+<section id="kcai3">
+  <div class="wrap">
+    <div class="st rv"><span class="en">AI China Marketing</span><div class="kc-badge red">KCAI_코드03</div><h2><span class="ko">AI 중국 마케팅 대행</span><span class="zh">AI 中国营销代运营</span></h2><p><span class="ko">한국 제품을 AI로 중문 숏폼·상세페이지·보도자료로 만들고, 중국 언론 100곳 이상의 네트워크로 배포합니다.</span><span class="zh">借助 AI 将韩国产品制作成中文短视频、详情页与新闻稿，并通过协会 100 余家中国媒体网络进行发布。</span></p></div>
+    <div class="mk-plat rv"><span class="dy">抖音 Douyin</span><span class="xhs">小红书 Xiaohongshu</span><span><span class="ko">중국 언론 100+</span><span class="zh">中国媒体 100+</span></span></div>
+    <div class="mkd rv" id="mkdiag"><div class="mkd-hd"><div><h3><span class="ko">AI 중국 마케팅 자가진단</span><span class="zh">AI 中国营销自我诊断</span></h3><p><span class="ko">8개 질문에 답하면 중국 마케팅 준비도, 추천 플랫폼, 광고법 위험 문구를 바로 보여 드립니다.</span><span class="zh">回答8个问题，即可即时查看中国营销准备度、推荐平台及广告法风险用语。</span></p></div><span class="tg"><span class="ko">무료 · 약 1분</span><span class="zh">免费 · 约1分钟</span></span></div><div class="mkd-grid"><div class="mkd-q"><div class="mkd-l"><i>01</i><span class="ko">제품명</span><span class="zh">产品名称</span></div><input class="mkd-in" id="mkName" placeholder="예) 즉석 해삼 / 例：即食海参"></div><div class="mkd-q"><div class="mkd-l"><i>02</i><span class="ko">제품 카테고리</span><span class="zh">产品类别</span></div><div class="mkd-ops" data-k="cat"><button type="button" data-v="cos"><span class="ko">화장품</span><span class="zh">化妆品</span></button><button type="button" data-v="hf"><span class="ko">건강기능식품</span><span class="zh">保健食品</span></button><button type="button" data-v="food"><span class="ko">일반식품</span><span class="zh">普通食品</span></button><button type="button" data-v="med"><span class="ko">의료기기</span><span class="zh">医疗器械</span></button><button type="button" data-v="daily"><span class="ko">생활용품</span><span class="zh">日用品</span></button></div></div><div class="mkd-q"><div class="mkd-l"><i>03</i><span class="ko">중국 판매 현황</span><span class="zh">中国销售现状</span></div><div class="mkd-ops" data-k="sales"><button type="button" data-v="none"><span class="ko">아직 없음</span><span class="zh">尚未销售</span></button><button type="button" data-v="cbec"><span class="ko">크로스보더 판매 중</span><span class="zh">跨境电商销售中</span></button><button type="button" data-v="local"><span class="ko">일반무역·현지 유통 중</span><span class="zh">一般贸易/本地销售中</span></button></div></div><div class="mkd-q"><div class="mkd-l"><i>04</i><span class="ko">중국 인허가·등록</span><span class="zh">中国注册/备案</span></div><div class="mkd-ops" data-k="lic"><button type="button" data-v="done"><span class="ko">완료</span><span class="zh">已完成</span></button><button type="button" data-v="ing"><span class="ko">진행 중</span><span class="zh">进行中</span></button><button type="button" data-v="none"><span class="ko">없음·모름</span><span class="zh">没有/不清楚</span></button></div></div><div class="mkd-q"><div class="mkd-l"><i>05</i><span class="ko">중문 마케팅 자료</span><span class="zh">中文营销资料</span> <small><span class="ko">상세페이지·영상</span><span class="zh">详情页·视频</span></small></div><div class="mkd-ops" data-k="mat"><button type="button" data-v="yes"><span class="ko">있음</span><span class="zh">有</span></button><button type="button" data-v="part"><span class="ko">일부</span><span class="zh">部分</span></button><button type="button" data-v="no"><span class="ko">없음</span><span class="zh">没有</span></button></div></div><div class="mkd-q"><div class="mkd-l"><i>06</i><span class="ko">핵심 타깃</span><span class="zh">核心目标人群</span></div><div class="mkd-ops" data-k="tgt"><button type="button" data-v="w20"><span class="ko">20대 여성</span><span class="zh">20多岁女性</span></button><button type="button" data-v="w30"><span class="ko">30~40대 여성</span><span class="zh">30-40岁女性</span></button><button type="button" data-v="mom"><span class="ko">육아맘</span><span class="zh">宝妈</span></button><button type="button" data-v="mid"><span class="ko">중장년 건강 관심층</span><span class="zh">中老年养生人群</span></button><button type="button" data-v="men"><span class="ko">남성</span><span class="zh">男性</span></button></div></div><div class="mkd-q"><div class="mkd-l"><i>07</i><span class="ko">가장 큰 목표</span><span class="zh">首要目标</span></div><div class="mkd-ops" data-k="goal"><button type="button" data-v="brand"><span class="ko">브랜드 인지도</span><span class="zh">品牌知名度</span></button><button type="button" data-v="sales"><span class="ko">온라인 판매</span><span class="zh">线上销售</span></button><button type="button" data-v="b2b"><span class="ko">유통·바이어 발굴</span><span class="zh">渠道/采购商开发</span></button></div></div><div class="mkd-q full"><div class="mkd-l"><i>08</i><span class="ko">지금 쓰는 홍보 문구</span><span class="zh">现有宣传文案</span> <small><span class="ko">선택 · 한글/중문 모두 가능 — 중국 광고법 위험 표현을 찾아 드립니다</span><span class="zh">选填 · 韩文/中文均可，自动检查广告法风险用语</span></small></div><textarea class="mkd-ta" id="mkCopy" placeholder="예) 피부 트러블을 완벽하게 치료하는 최고의 크림 / 例：全网最好的祛痘神器"></textarea></div></div><div class="mkd-go"><button class="btn btn-red" type="button" id="mkRun"><span class="ko">진단 결과 보기</span><span class="zh">查看诊断结果</span></button><span class="mkd-err" id="mkErr"></span></div><div class="mkd-res" id="mkRes"></div></div>
+    <div class="kc-cta rv">
+      <div><h3><span class="ko">마케팅 진단은 무료입니다.<br>비용은 진단 후 맞춤으로 안내드립니다.</span><span class="zh">营销诊断完全免费，<br>费用将在诊断后为您定制说明。</span></h3>
+      <p><span class="ko">제품 소개서를 보내 주시면 중국 시장용 콘텐츠 방향과 광고법 점검 결과를 담은 진단을 먼저 드립니다.</span><span class="zh">发送产品介绍后，协会将先为您提供包含中国市场内容方向及广告法合规检查结果的诊断。</span></p></div>
+      <div class="acts"><a class="btn btn-red" href="#mkdiag"><span class="ko">↑ 무료 자가진단 해 보기</span><span class="zh">↑ 免费自我诊断</span></a><a class="btn btn-navy" href="#contact"><span class="ko">협력 문의하기</span><span class="zh">合作咨询</span></a><p class="kc-note"><span class="ko">※ 제품 소개서·상세페이지를 <a href="mailto:kcstsa@nate.com">kcstsa@nate.com</a> 으로 보내 주세요.</span><span class="zh">※ 请将产品介绍或详情页发送至 <a href="mailto:kcstsa@nate.com">kcstsa@nate.com</a>。</span></p></div>
+    </div>
+    <div class="mk-grid">
+      <div class="mk-card rv"><div class="ic">01</div><h3><span class="ko">더우인 숏폼</span><span class="zh">抖音短视频</span></h3><p><span class="ko">15·30·60초 숏폼 대본과 촬영·자막 구성을 중국 소비자 말투로 만듭니다.</span><span class="zh">以中国消费者的语言习惯，制作15/30/60秒短视频脚本及拍摄、字幕方案。</span></p></div>
+      <div class="mk-card rv d1"><div class="ic">02</div><h3><span class="ko">샤오홍슈 노트</span><span class="zh">小红书笔记</span></h3><p><span class="ko">실사용 후기·정보·일상 장면형 노트를 만들고, KOC 시딩으로 입소문을 쌓습니다.</span><span class="zh">撰写真实测评、干货科普、场景种草笔记，并通过 KOC 铺量积累口碑。</span></p></div>
+      <div class="mk-card rv"><div class="ic">03</div><h3><span class="ko">중문 상세페이지</span><span class="zh">中文详情页</span></h3><p><span class="ko">티몰·더우인 샵에 맞는 모바일 상세페이지 구성과 중문 카피를 만듭니다.</span><span class="zh">为天猫、抖音小店等平台制作移动端详情页结构与中文文案。</span></p></div>
+      <div class="mk-card rv d1"><div class="ic">04</div><h3><span class="ko">보도자료·언론 배포</span><span class="zh">新闻稿·媒体发布</span></h3><p><span class="ko">중문 보도자료를 쓰고 협회 중국 언론 네트워크 100곳 이상을 통해 배포합니다.</span><span class="zh">撰写中文新闻稿，并通过协会 100 余家中国媒体网络发布。</span></p></div>
+    </div>
+    <div class="mk-flow rv">
+      <div><b>STEP 01</b><span><span class="ko">제품 진단</span><span class="zh">产品诊断</span></span></div>
+      <div><b>STEP 02</b><span><span class="ko">AI 콘텐츠 제작</span><span class="zh">AI 内容制作</span></span></div>
+      <div><b>STEP 03</b><span><span class="ko">광고법 점검</span><span class="zh">广告法合规检查</span></span></div>
+      <div><b>STEP 04</b><span><span class="ko">언론·플랫폼 배포</span><span class="zh">媒体·平台发布</span></span></div>
+      <div><b>STEP 05</b><span><span class="ko">성과 리포트</span><span class="zh">效果报告</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- KCAI_코드04 B2B SOURCING AGENT -->
+<section id="kcai4">
+  <div class="wrap">
+    <div class="st rv"><span class="en">AI B2B Sourcing Agent</span><div class="kc-badge teal">KCAI_코드04</div><h2><span class="ko">한중 B2B 소싱 AI 에이전트</span><span class="zh">中韩 B2B 采购 AI 智能体</span></h2><p><span class="ko">"이런 설비나 원료가 필요하다"고 입력하면 AI가 중국 공급사를 찾아 비교표와 중문 견적 요청서를 만듭니다. 이후 현지 검수는 협회 네트워크가 맡습니다.</span><span class="zh">只需输入"需要什么设备或原料"，AI 即可寻找中国供应商，生成比较表与中文询价函；后续实地验厂·验货由协会网络负责。</span></p></div>
+    <div class="mk-plat rv"><span><span class="ko">설비·기계</span><span class="zh">设备·机械</span></span><span><span class="ko">원료·소재</span><span class="zh">原料·材料</span></span><span><span class="ko">부품·포장재</span><span class="zh">零部件·包材</span></span><span class="dy" style="background:#0E8F80;border-color:#0E8F80"><span class="ko">산둥 5개 거점 현지 검수</span><span class="zh">山东五大据点实地验厂</span></span></div>
+    <div class="mkd rv" id="srdiag"><div class="mkd-hd"><div><h3><span class="ko">무료 AI 소싱 요청</span><span class="zh">免费 AI 采购需求</span></h3><p><span class="ko">7개 질문에 답하면 중문 검색 키워드, 예상 진행 일정, 중문 견적 요청서 초안을 바로 보여 드립니다.</span><span class="zh">回答7个问题，即可即时查看中文搜索关键词、预计进度及中文询价函草稿。</span></p></div><span class="tg" style="background:#0E8F80"><span class="ko">무료 · 약 1분</span><span class="zh">免费 · 约1分钟</span></span></div>
+      <div class="mkd-grid">
+        <div class="mkd-q"><div class="mkd-l"><i>01</i><span class="ko">필요한 품목</span><span class="zh">所需产品</span> <small><span class="ko">국문·중문 모두 가능</span><span class="zh">韩文/中文均可</span></small></div><input class="mkd-in" id="srItem" placeholder="예) 진공 동결건조기 / 例：真空冷冻干燥机"></div>
+        <div class="mkd-q"><div class="mkd-l"><i>02</i><span class="ko">구분</span><span class="zh">类别</span></div><div class="mkd-ops" data-k="type"><button type="button" data-v="equip"><span class="ko">설비·기계</span><span class="zh">设备·机械</span></button><button type="button" data-v="raw"><span class="ko">원료·소재</span><span class="zh">原料·材料</span></button><button type="button" data-v="part"><span class="ko">부품·반제품</span><span class="zh">零部件·半成品</span></button><button type="button" data-v="pack"><span class="ko">포장재·소모품</span><span class="zh">包装材料·耗材</span></button></div></div>
+        <div class="mkd-q full"><div class="mkd-l"><i>03</i><span class="ko">주요 사양·기술 요건</span><span class="zh">主要规格·技术要求</span> <small><span class="ko">줄바꿈으로 구분</span><span class="zh">每行一项</span></small></div><textarea class="mkd-ta" id="srSpec" placeholder="예) 재질 SUS304&#10;처리 용량 100kg/일&#10;전압 220V 60Hz"></textarea></div>
+        <div class="mkd-q"><div class="mkd-l"><i>04</i><span class="ko">수량 · 목표 예산</span><span class="zh">数量 · 目标预算</span></div><div class="sr-in2"><input class="mkd-in" id="srQty" placeholder="수량 / 数量 (예: 1대)"><input class="mkd-in" id="srBud" placeholder="예산 / 预算 (예: 5천만 원)"></div></div>
+        <div class="mkd-q"><div class="mkd-l"><i>05</i><span class="ko">희망 납기</span><span class="zh">期望交期</span></div><div class="mkd-ops" data-k="due"><button type="button" data-v="1"><span class="ko">1개월 이내</span><span class="zh">1个月内</span></button><button type="button" data-v="3"><span class="ko">1~3개월</span><span class="zh">1~3个月</span></button><button type="button" data-v="6"><span class="ko">3개월 이상</span><span class="zh">3个月以上</span></button><button type="button" data-v="0"><span class="ko">미정</span><span class="zh">未定</span></button></div></div>
+        <div class="mkd-q"><div class="mkd-l"><i>06</i><span class="ko">필요 인증</span><span class="zh">所需认证</span> <small><span class="ko">복수 선택</span><span class="zh">可多选</span></small></div><div class="mkd-ops" data-k="cert" data-multi="1"><button type="button" data-v="CE">CE</button><button type="button" data-v="ISO9001">ISO</button><button type="button" data-v="食品级"><span class="ko">식품용</span><span class="zh">食品级</span></button><button type="button" data-v="KC">KC</button><button type="button" data-v="none"><span class="ko">없음·모름</span><span class="zh">无/不清楚</span></button></div></div>
+        <div class="mkd-q"><div class="mkd-l"><i>07</i><span class="ko">현지 검수</span><span class="zh">实地检验</span></div><div class="mkd-ops" data-k="insp"><button type="button" data-v="full"><span class="ko">공장 실사 + 출하 검수</span><span class="zh">验厂 + 验货</span></button><button type="button" data-v="ship"><span class="ko">출하 검수만</span><span class="zh">仅验货</span></button><button type="button" data-v="no"><span class="ko">불필요</span><span class="zh">不需要</span></button></div></div>
+      </div>
+      <div class="mkd-go"><button class="btn btn-red" type="button" id="srRun"><span class="ko">소싱 결과 보기</span><span class="zh">查看采购结果</span></button><span class="mkd-err" id="srErr"></span></div>
+      <div class="mkd-res" id="srRes"></div>
+    </div>
+    <div class="kc-cta rv">
+      <div><h3><span class="ko">소싱 상담은 무료입니다.<br>비용은 진단 후 맞춤으로 안내드립니다.</span><span class="zh">采购咨询完全免费，<br>费用将在诊断后为您定制说明。</span></h3>
+      <p><span class="ko">필요한 설비·원료의 사양서를 보내 주시면 중국 공급사 후보 비교표와 중문 견적 요청서를 먼저 준비해 드립니다.</span><span class="zh">发送所需设备或原料的规格书后，协会将先为您准备中国供应商候选比较表与中文询价函。</span></p></div>
+      <div class="acts"><a class="btn btn-red" href="#srdiag"><span class="ko">↑ 무료 소싱 요청 해 보기</span><span class="zh">↑ 免费提交采购需求</span></a><a class="btn btn-navy" href="#contact"><span class="ko">협력 문의하기</span><span class="zh">合作咨询</span></a><p class="kc-note"><span class="ko">※ 사양서·도면·참고 사진을 <a href="mailto:kcstsa@nate.com">kcstsa@nate.com</a> 으로 보내 주세요.</span><span class="zh">※ 请将规格书、图纸或参考图片发送至 <a href="mailto:kcstsa@nate.com">kcstsa@nate.com</a>。</span></p></div>
+    </div>
+    <div class="mk-grid">
+      <div class="mk-card rv"><div class="ic" style="background:#0E8F80">01</div><h3><span class="ko">AI 공급사 탐색</span><span class="zh">AI 供应商搜寻</span></h3><p><span class="ko">요청 품목을 중문 산업 용어로 바꿔 중국 제조사를 찾고, 무역상보다 원천 공장을 우선 추립니다.</span><span class="zh">将需求转换为中文行业术语搜寻中国制造商，优先筛选源头工厂而非贸易商。</span></p></div>
+      <div class="mk-card rv d1"><div class="ic" style="background:#0E8F80">02</div><h3><span class="ko">공급사 비교표</span><span class="zh">供应商比较表</span></h3><p><span class="ko">가격·납기·MOQ·인증·업력·수출 경험·검수 접근성을 점수로 비교해 추천 순위를 냅니다.</span><span class="zh">从价格、交期、起订量、认证、经营年限、出口经验及验厂便利性综合评分并推荐排序。</span></p></div>
+      <div class="mk-card rv"><div class="ic" style="background:#0E8F80">03</div><h3><span class="ko">중문 견적 요청서</span><span class="zh">中文询价函</span></h3><p><span class="ko">한국 전압(220V/60Hz)·인증·FTA 원산지증명까지 담은 중문 询价函을 공급사별로 만들어 보냅니다.</span><span class="zh">按供应商定制中文询价函，涵盖韩国电压（220V/60Hz）、认证及中韩 FTA 原产地证明等要求。</span></p></div>
+      <div class="mk-card rv d1"><div class="ic" style="background:#0E8F80">04</div><h3><span class="ko">협회 현지 검수</span><span class="zh">协会实地检验</span></h3><p><span class="ko">지난·칭다오·웨이팡·옌타이·웨이하이 거점에서 공장 실사, 출하 전 시운전, 선적 전 검품을 진행합니다.</span><span class="zh">依托济南、青岛、潍坊、烟台、威海据点，开展验厂、出厂试机及装运前验货。</span></p></div>
+    </div>
+    <div class="mk-flow teal rv">
+      <div><b>STEP 01</b><span><span class="ko">소싱 요청</span><span class="zh">提交需求</span></span></div>
+      <div><b>STEP 02</b><span><span class="ko">AI 공급사 탐색</span><span class="zh">AI 搜寻供应商</span></span></div>
+      <div><b>STEP 03</b><span><span class="ko">비교표·중문 견적</span><span class="zh">比较表·中文询价</span></span></div>
+      <div><b>STEP 04</b><span><span class="ko">협회 현지 검수</span><span class="zh">协会实地检验</span></span></div>
+      <div><b>STEP 05</b><span><span class="ko">계약·선적 지원</span><span class="zh">签约·发货支持</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events" class="bg">
+  <div class="wrap">
+    <div class="st rv"><span class="en">Core Project</span><h2><span class="ko">대표 행사</span><span class="zh">品牌活动</span></h2><p><span class="ko">협회가 주관하는 한·중 협력의 대표 플랫폼입니다.</span><span class="zh">协会主办的中韩合作代表性平台。</span></p></div>
+
+    <div class="ev">
+      <div class="ev-img rv"><img src="img12.jpg" alt="제9회 한중혁신대회 발대식" style="object-position:center 40%"><span class="tagl"><span class="ko">제9회 한중혁신대회 발대식</span><span class="zh">第九届中韩创新大赛启动仪式</span></span></div>
+      <div class="rv d1">
+        <span class="lab">PROJECT 01</span>
+        <h3><span class="ko">한중혁신대회</span><span class="zh">中韩创新大赛</span></h3>
+        <div class="date"><span class="ko">2018년부터 매년 개최 · 2026 제9회 국가급 승격</span><span class="zh">2018年起每年举办 · 2026年第九届升级为国家级</span></div>
+        <p><span class="ko">한·중 과학기술 교류협력의 대표 행사로, 혁신기술과 창업 프로젝트를 발굴해 기술협력, 투자유치, 사업화로 연결합니다. 협회는 한국 측 주관기관으로 대회를 운영합니다.</span><span class="zh">中韩科技交流合作的代表性活动，发掘创新技术与创业项目，对接技术合作、招商引资与产业化。协会作为韩方承办机构运营大赛。</span></p>
+        <dl class="org">
+          <div><dt><span class="ko">주최</span><span class="zh">主办</span></dt><dd><span class="ko">산둥성 인민정부</span><span class="zh">山东省人民政府</span></dd></div>
+          <div><dt><span class="ko">주관</span><span class="zh">承办</span></dt><dd><span class="ko">산둥성 과학기술청 · 웨이하이시 인민정부</span><span class="zh">山东省科学技术厅 · 威海市人民政府</span></dd></div>
+          <div><dt><span class="ko">운영</span><span class="zh">执行</span></dt><dd><span class="ko">산둥성·웨이하이시 과학기술서비스업협회 · 한중과학기술서비스협회</span><span class="zh">山东省及威海市科技服务业协会 · 韩中科学技术服务协会</span></dd></div>
+        </dl>
+        <div class="evn"><div><b>1,800+</b><span class="ko">발굴 프로젝트 (1·2회)</span><span class="zh">发掘项目（第一、二届）</span></div><div><b>42</b><span class="ko">웨이하이 법인 설립 한국 기업</span><span class="zh">在威海设立法人的韩企</span></div><div><b>9<span style="font-size:18px" class="ko">회</span><span style="font-size:18px" class="zh">届</span></b><span class="ko">연속 한국 측 주관</span><span class="zh">连续韩方承办</span></div></div>
+        <a class="more" href="https://www.c-kic.com" target="_blank" rel="noopener">c-kic.com →</a>
+      </div>
+    </div>
+
+    <div class="ev rev">
+      <div class="ev-img rv"><img src="img13.jpg" alt="2026 CKMDM" style="object-position:center 78%"><span class="tagl" style="top:22px;bottom:auto"><span class="ko">2026 CKMDM · 웨이하이</span><span class="zh">2026 CKMDM · 威海</span></span></div>
+      <div class="rv d1">
+        <span class="lab">PROJECT 02</span>
+        <h3>CKMDM</h3>
+        <div class="date"><span class="ko">한·중 의료기기 산업협력 비즈니스 매칭 · 2026.5 웨이하이</span><span class="zh">中韩医疗器械产业合作对接会 · 2026.5 威海</span></div>
+        <p><span class="ko">China-Korea Medical Device Industry Cooperation Match Making Conference. 한·중 의료기기·바이오헬스 분야 공식 비즈니스 매칭 프로그램으로 공동연구, 투자유치, 중국 시장 진출을 연결합니다.</span><span class="zh">China-Korea Medical Device Industry Cooperation Match Making Conference。中韩医疗器械及生物健康领域的官方商务对接项目，连接联合研发、招商引资与中国市场准入。</span></p>
+        <dl class="org">
+          <div><dt><span class="ko">주관</span><span class="zh">主办</span></dt><dd><span class="ko">한중과학기술서비스협회 · 위고그룹</span><span class="zh">韩中科学技术服务协会 · 威高集团</span></dd></div>
+          <div><dt><span class="ko">지도</span><span class="zh">指导</span></dt><dd><span class="ko">웨이하이시 상무국</span><span class="zh">威海市商务局</span></dd></div>
+          <div><dt><span class="ko">협력</span><span class="zh">协办</span></dt><dd><span class="ko">오송첨단의료산업진흥재단 · 전남창조경제혁신센터 · 광주전남벤처기업협회</span><span class="zh">五松尖端医疗产业振兴财团 · 全南创造经济革新中心 · 光州全南风险企业协会</span></dd></div>
+        </dl>
+        <div class="evn"><div><b>180+</b><span class="ko">한·중 참가 기관·기업</span><span class="zh">中韩参会机构与企业</span></div><div><b>100+</b><span class="ko">한국 측 투자사</span><span class="zh">韩方投资机构</span></div><div><b>49</b><span class="ko">중국 기업·투자기관 대표</span><span class="zh">中方企业及投资机构代表</span></div></div>
+        <a class="more" href="https://ckmdm.com" target="_blank" rel="noopener">ckmdm.com →</a>
+      </div>
+    </div>
+
+    <div class="ev">
+      <div class="ev-img rv"><img src="img14.jpg" alt="한중 의료기기산업 융합발전연맹 출범" style="object-position:center 40%"><span class="tagl"><span class="ko">한중 의료기기산업 융합발전연맹 출범</span><span class="zh">中韩医疗器械产业融合发展联盟正式启动</span></span></div>
+      <div class="rv d1">
+        <span class="lab">PROJECT 03</span>
+        <h3><span class="ko">한중(웨이하이) 의료산업 융합발전대회</span><span class="zh">中韩（威海）医疗产业融合发展大会</span></h3>
+        <div class="date"><span class="ko">2024.12.16 – 12.18 · 웨이하이 골든베이 국제호텔</span><span class="zh">2024.12.16 – 12.18 · 威海金湾国际酒店</span></div>
+        <p><span class="ko">한·중 의약·의료기기 산업의 교류와 협력을 넓히는 국제 협력 행사로, 기술협력·투자 연계·공동 사업화의 기반을 마련하고 한·중 제약·의료기기 기술협력 플랫폼을 출범시켰습니다.</span><span class="zh">扩大中韩医药及医疗器械产业交流合作的国际活动，奠定技术合作、投资对接与共同产业化的基础，并启动中韩医药医疗器械技术合作平台。</span></p>
+        <dl class="org">
+          <div><dt><span class="ko">주최</span><span class="zh">主办</span></dt><dd><span class="ko">중국의료기기산업협회 · 한중과학기술서비스협회</span><span class="zh">中国医疗器械行业协会 · 韩中科学技术服务协会</span></dd></div>
+          <div><dt><span class="ko">협력</span><span class="zh">合作</span></dt><dd><span class="ko">위고그룹 · 디샤제약 · 한양대 ERICA 외</span><span class="zh">威高集团 · 迪沙药业 · 汉阳大学ERICA等</span></dd></div>
+        </dl>
+        <div class="evn"><div><b>130+</b><span class="ko">한·중 참가자</span><span class="zh">中韩参会人员</span></div><div><b>10+</b><span class="ko">주최·주관·협력 기관</span><span class="zh">主办·承办·合作机构</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results" class="res">
+  <div class="wrap">
+    <div class="st light rv"><span class="en">Achievements</span><h2><span class="ko">주요 성과</span><span class="zh">合作成果</span></h2><p><span class="ko">교류에서 끝나지 않고 계약, 수출, 법인 설립, 투자로 이어진 결과입니다.</span><span class="zh">不止于交流，而是落实为签约、出口、设立法人与投资的成果。</span></p></div>
+    <div class="rg">
+      <div class="rc rv"><span class="k"><span class="ko">한중혁신대회</span><span class="zh">中韩创新大赛</span></span><b>1,800+</b><span class="u"><span class="ko">발굴 혁신 프로젝트</span><span class="zh">发掘创新项目</span></span><p><span class="ko">1·2회 대회에서만 42개 한국 기업의 웨이하이 법인 설립. 2026년 국가급 승격.</span><span class="zh">仅第一、二届即推动42家韩企在威海设立法人。2026年升级为国家级。</span></p></div>
+      <div class="rc rv d1"><span class="k">CKMDM 2026</span><b>180+</b><span class="u"><span class="ko">한·중 참가 기관·기업</span><span class="zh">中韩参会机构与企业</span></span><p><span class="ko">한국 측 투자사 100곳 이상 참가. 투자 확정과 후속 상담 진행.</span><span class="zh">100余家韩方投资机构参会，投资落地与后续洽谈持续推进。</span></p></div>
+      <div class="rc rv d2"><span class="k"><span class="ko">산둥 셀렉트 코리아</span><span class="zh">山东精选韩国</span></span><b>430,000</b><span class="u"><span class="ko">행사 시청</span><span class="zh">观看人次</span></span><p><span class="ko">산둥성 상무청 주최 한국 상품 행사 주관. 한국 제품 350종 중국 진출 IR.</span><span class="zh">承办山东省商务厅主办的韩国商品活动，为350种韩国产品举办进入中国路演。</span></p></div>
+      <div class="rc rv"><span class="k"><span class="ko">의료기기 수권 사업</span><span class="zh">医疗器械授权业务</span></span><b>40+</b><span class="u"><span class="ko">2025 성과 기업</span><span class="zh">2025年成果企业</span></span><p><span class="ko">웨이하이 의약·의료기기산업협회 수권 기반 사업, 연계 투자사 30곳 이상.</span><span class="zh">基于威海市医药医疗器械产业协会授权，对接投资机构30余家。</span></p></div>
+      <div class="rc rv d1"><span class="k">KOSDAQ</span><b><span class="ko">상장사</span><span class="zh">上市公司</span></b><span class="u"><span class="ko">휴럼 중국 진출 구조 설계</span><span class="zh">HURUM进入中国架构设计</span></span><p><span class="ko">중국 현지 합작과 유통 협력의 두 갈래 진출 구조를 설계·추진.</span><span class="zh">设计并推进中国本地合资与分销合作的双轨进入架构。</span></p></div>
+      <div class="rc rv d2"><span class="k">EXPORT</span><b>BUENO</b><span class="u"><span class="ko">한국 화장품 중국 수출 성사</span><span class="zh">韩国化妆品成功出口中国</span></span><p><span class="ko">브랜드 수권·판매 채널·홍보·물류 전 과정 지원, 2차 계약까지 성사.</span><span class="zh">全程支持品牌授权、渠道、宣传与物流，促成第二批合同。</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="st rv"><span class="en">Field Activities</span><h2><span class="ko">현장 활동</span><span class="zh">现场活动</span></h2></div>
+    <div class="gal rv">
+      <figure class="w h"><img src="img15.jpg" alt="2026 위고 글로벌 파트너스 컨퍼런스"><figcaption><span class="ko">2026 위고 글로벌 파트너스 컨퍼런스</span><span class="zh">2026威高全球合作伙伴大会</span></figcaption></figure>
+      <figure><img src="img16.jpg" alt="위고 글로벌 파트너스 컨퍼런스 단체사진" style="object-position:center 75%"><figcaption><span class="ko">위고 글로벌 파트너스 컨퍼런스 단체사진</span><span class="zh">威高全球合作伙伴大会合影</span></figcaption></figure>
+      <figure><img src="img17.jpg" alt="한국 기업 대표단 중국 현장 방문" style="object-position:center 70%"><figcaption><span class="ko">한국 기업 대표단 중국 현장 방문</span><span class="zh">韩国企业代表团实地考察</span></figcaption></figure>
+      <figure><img src="img18.jpg" alt="제8회 한중혁신대회 웨이하이 협력교류회"><figcaption><span class="ko">제8회 한중혁신대회 웨이하이 협력교류회</span><span class="zh">第八届中韩创新大赛 威海路演对接会</span></figcaption></figure>
+      <figure><img src="img19.jpg" alt="한국혁신기업 웨이하이 협력교류회 현장" style="object-position:center 70%"><figcaption><span class="ko">한국혁신기업 웨이하이 협력교류회 현장</span><span class="zh">韩国创新企业威海路演对接会现场</span></figcaption></figure>
+      <figure class="w"><img src="img20.jpg" alt="2024 한중과학기술혁신협력대회"><figcaption><span class="ko">2024 한중과학기술혁신협력대회</span><span class="zh">2024中韩科技创新合作大会</span></figcaption></figure>
+      <figure><img src="img21.jpg" alt="제4회 한중혁신대회 시상식"><figcaption><span class="ko">제4회 한중혁신대회 시상식</span><span class="zh">第四届中韩创新大赛颁奖大会</span></figcaption></figure>
+      <figure><img src="img22.jpg" alt="제5회 한중혁신대회 시상식" style="object-position:center 60%"><figcaption><span class="ko">제5회 한중혁신대회 시상식</span><span class="zh">第五届中韩创新大赛颁奖大会</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section id="history" class="bg">
+  <div class="wrap">
+    <div class="st rv"><span class="en">History</span><h2><span class="ko">주요 연혁</span><span class="zh">发展历程</span></h2></div>
+    <div class="tl">
+      <div class="tr rv"><div class="y">2026</div><div class="d"><h4><span class="ko">제9회 한중혁신대회 국가급 승격 · CKMDM 주관</span><span class="zh">第九届中韩创新大赛升级为国家级 · 主办CKMDM</span></h4><p><span class="ko">한·중 정상회담 과학기술 교류 합의를 계기로 설립된 중한일협력센터(옌타이)와 협력</span><span class="zh">与以中韩首脑会谈科技交流共识为契机设立的中日韩合作中心（烟台）开展合作</span></p></div></div>
+      <div class="tr rv"><div class="y">2025</div><div class="d"><h4><span class="ko">한중혁신협력노드 설립 공식 승인</span><span class="zh">中韩创新合作节点设立获正式批准</span></h4><p><span class="ko">웨이하이 의약·의료기기산업협회 수권 사업으로 40개 이상 기업 성과</span><span class="zh">基于威海市医药医疗器械产业协会授权，为40余家企业创造成果</span></p></div></div>
+      <div class="tr rv"><div class="y">2024</div><div class="d"><h4><span class="ko">제1회 한중(웨이하이) 의료산업 융합발전대회 주최</span><span class="zh">主办第一届中韩（威海）医疗产业融合发展大会</span></h4><p><span class="ko">중국의료기기산업협회와 공동 주최 · 한·중 제약·의료기기 기술협력 플랫폼 출범</span><span class="zh">与中国医疗器械行业协会共同主办 · 启动中韩医药医疗器械技术合作平台</span></p></div></div>
+      <div class="tr rv"><div class="y">2020</div><div class="d"><h4><span class="ko">산둥 셀렉트 코리아 주관</span><span class="zh">承办"山东精选韩国"</span></h4><p><span class="ko">약 43만 명 시청 · 한국 제품 350종 중국 진출 IR</span><span class="zh">约43万人次观看 · 350种韩国产品进入中国路演</span></p></div></div>
+      <div class="tr rv"><div class="y">2018</div><div class="d"><h4><span class="ko">한중혁신대회 출범</span><span class="zh">中韩创新大赛启动</span></h4><p><span class="ko">이후 매년 한국 측 주관기관으로 운영</span><span class="zh">此后每年担任韩方承办机构</span></p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="st rv"><span class="en">Contact Us</span><h2><span class="ko">협력 문의</span><span class="zh">合作咨询</span></h2><p><span class="ko">중국 진출, 투자유치, 기술협력, 행사 참가 등 협력을 원하시면 언제든 문의해 주십시오.</span><span class="zh">如有进入中国、招商引资、技术合作、参会等合作需求，欢迎随时咨询。</span></p></div>
+    <div class="ct">
+      <div class="ct-info rv">
+        <h3><span class="ko">한중과학기술서비스협회</span><span class="zh">韩中科学技术服务协会</span></h3>
+        <p>Korea-China Science &amp; Technology Services Association</p>
+        <ul class="ci">
+          <li><span><span class="ko">전화</span><span class="zh">电话</span></span><a href="tel:+8617615421772">+86 176 1542 1772</a></li>
+          <li><span><span class="ko">이메일</span><span class="zh">邮箱</span></span><a href="mailto:kcstsa@nate.com">kcstsa@nate.com</a></li>
+          <li><span><span class="ko">주소</span><span class="zh">地址</span></span><div><span class="ko">중국 산둥성 웨이하이시 경제기술개발구<br>홍콩로 18-1 스마트빌딩 905호</span><span class="zh">中国山东省威海市经济技术开发区<br>香港路18-1号 智慧大厦905室</span></div></li>
+          <li><span>Web</span><div><a href="https://www.c-kic.com" target="_blank" rel="noopener">c-kic.com</a> · <a href="https://ckmdm.com" target="_blank" rel="noopener">ckmdm.com</a></div></li>
+        </ul>
+      </div>
+      <form id="form" class="rv d1" novalidate>
+        <div class="row">
+          <div class="f"><label><span class="ko">성함 *</span><span class="zh">姓名 *</span></label><input name="name" autocomplete="name"></div>
+          <div class="f"><label><span class="ko">회사·기관명 *</span><span class="zh">公司/机构 *</span></label><input name="org" autocomplete="organization"></div>
+        </div>
+        <div class="row">
+          <div class="f"><label><span class="ko">연락처</span><span class="zh">联系电话</span></label><input name="phone" autocomplete="tel"></div>
+          <div class="f"><label><span class="ko">이메일 *</span><span class="zh">邮箱 *</span></label><input name="email" type="email" autocomplete="email"></div>
+        </div>
+        <div class="f"><label><span class="ko">문의 분야</span><span class="zh">咨询类别</span></label>
+          <select name="type" id="type">
+            <option data-ko="의료기기·바이오 중국진출" data-zh="医疗器械·生物进入中国">의료기기·바이오 중국진출</option>
+            <option data-ko="AI 매칭 (무료 AI 진단)" data-zh="AI对接（免费AI诊断）">AI 매칭 (무료 AI 진단)</option>
+            <option data-ko="AI 중국 마케팅 (무료 자가진단)" data-zh="AI中国营销（免费自我诊断）">AI 중국 마케팅 (무료 자가진단)</option>
+            <option data-ko="AI B2B 소싱 (설비·원료 구매)" data-zh="AI B2B采购（设备·原料）">AI B2B 소싱 (설비·원료 구매)</option>
+            <option data-ko="투자유치·펀드" data-zh="招商引资·基金">투자유치·펀드</option>
+            <option data-ko="과학기술 교류·인재 협력" data-zh="科技交流·人才合作">과학기술 교류·인재 협력</option>
+            <option data-ko="한·중 상호진출 지원" data-zh="中韩双向进入支持">한·중 상호진출 지원</option>
+            <option data-ko="행사 참가 (한중혁신대회·CKMDM)" data-zh="参会（中韩创新大赛·CKMDM）">행사 참가 (한중혁신대회·CKMDM)</option>
+            <option data-ko="기타" data-zh="其他">기타</option>
+          </select></div>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px" aria-hidden="true">
+        <div class="f"><label><span class="ko">문의 내용 *</span><span class="zh">咨询内容 *</span></label><textarea name="msg"></textarea></div>
+        <button class="btn btn-navy" type="submit"><span class="ko">문의 보내기</span><span class="zh">提交咨询</span></button>
+        <div class="note" id="note"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div><img src="img02.png" alt="한중과학기술서비스협회 KCSTSA"></div>
+      <div class="ft-info">
+        <div><b><span class="ko">한중과학기술서비스협회</span><span class="zh">韩中科学技术服务协会</span></b> (KCSTSA)</div>
+        <div><span class="ko">중국 산둥성 웨이하이시 경제기술개발구 홍콩로 18-1 스마트빌딩 905호</span><span class="zh">中国山东省威海市经济技术开发区香港路18-1号 智慧大厦905室</span></div>
+        <div>T. +86 176 1542 1772 · E. kcstsa@nate.com</div>
+        <div class="ft-links"><a href="#greeting"><span class="ko">협회소개</span><span class="zh">关于协会</span></a><a href="#programs"><span class="ko">사업분야</span><span class="zh">业务领域</span></a><a href="#events"><span class="ko">대표행사</span><span class="zh">品牌活动</span></a><a href="#results"><span class="ko">주요성과</span><span class="zh">合作成果</span></a><a href="#contact"><span class="ko">협력문의</span><span class="zh">合作咨询</span></a></div>
+      </div>
+    </div>
+    <div class="copy">© KCSTSA. All Rights Reserved.</div>
+  </div>
+</footer>
+<a href="#home" class="totop" id="totop">TOP</a>
+
+<script>
+(function(){
+  var b=document.body,bKo=document.getElementById('bKo'),bZh=document.getElementById('bZh');
+  var caps=[["2026 CKMDM 한·중 의료기기 매칭 · 웨이하이","2026 CKMDM 中韩医疗器械对接会 · 威海"],["한·중 협력 기업 전략 발표회","中韩合作企业战略发布会"],["2026 위고 글로벌 파트너스 컨퍼런스","2026威高全球合作伙伴大会"]];
+  var cur=0;
+  function setLang(l){
+    b.classList.toggle('zh',l==='zh');
+    document.documentElement.lang=l==='zh'?'zh-CN':'ko';
+    bKo.classList.toggle('sel',l!=='zh');bZh.classList.toggle('sel',l==='zh');
+    document.title=l==='zh'?'韩中科学技术服务协会 KCSTSA':'한중과학기술서비스협회 KCSTSA';
+    var o=document.querySelectorAll('#type option');
+    for(var i=0;i<o.length;i++)o[i].textContent=o[i].getAttribute('data-'+(l==='zh'?'zh':'ko'));
+    capSet();
+    try{localStorage.setItem('kcstsa_lang',l)}catch(e){}
+  }
+  bKo.onclick=function(){setLang('ko')};bZh.onclick=function(){setLang('zh')};
+
+  // slider
+  var sl=document.querySelectorAll('.slide'),dt=document.querySelectorAll('#dots button'),cap=document.getElementById('cap');
+  function capSet(){cap.textContent=caps[cur][b.classList.contains('zh')?1:0];}
+  function go(i){sl[cur].classList.remove('act');dt[cur].classList.remove('act');cur=i;sl[cur].classList.add('act');dt[cur].classList.add('act');capSet();}
+  var timer=setInterval(function(){go((cur+1)%sl.length)},6000);
+  dt.forEach(function(d,i){d.onclick=function(){clearInterval(timer);go(i);timer=setInterval(function(){go((cur+1)%sl.length)},6000);}});
+  var saved=null;try{saved=localStorage.getItem('kcstsa_lang')}catch(e){}
+  setLang(saved==='zh'?'zh':'ko');
+
+  // header / top
+  var hd=document.getElementById('hd'),tt=document.getElementById('totop');
+  function sc(){hd.classList.toggle('on',window.scrollY>60);tt.classList.toggle('show',window.scrollY>700)}
+  window.addEventListener('scroll',sc,{passive:true});sc();
+
+  // menu
+  var nav=document.getElementById('nav');
+  document.getElementById('burger').onclick=function(){nav.classList.toggle('open');hd.classList.add('on')};
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))nav.classList.remove('open')});
+
+  // reveal + counters (numbers are already correct in HTML; animation only enhances)
+  function count(el){
+    var n=+el.getAttribute('data-n'),sm=el.querySelector('small'),t0=null;
+    function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1600),v=Math.round(n*(1-Math.pow(1-p,3)));
+      el.firstChild.nodeValue=v.toLocaleString('en-US');if(p<1)requestAnimationFrame(f);}
+    requestAnimationFrame(f);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+    var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);io2.unobserve(e.target)}})},{threshold:.6});
+    document.querySelectorAll('[data-n]').forEach(function(el){io2.observe(el)});
+  }else document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+
+  // form — kcstsa@nate.com 으로 바로 전송 (FormSubmit). 실패 시 메일 앱으로 대체
+  var FORM_ENDPOINT='https://formsubmit.co/ajax/kcstsa@nate.com';
+  var form=document.getElementById('form');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=e.target,zh=b.classList.contains('zh'),note=document.getElementById('note'),btn=f.querySelector('button[type=submit]');
+    if(f._honey&&f._honey.value)return;
+    if(!f.name.value.trim()||!f.org.value.trim()||!f.email.value.trim()||!f.msg.value.trim()){
+      note.textContent=zh?'请填写所有必填项（*）。':'필수 항목(*)을 모두 입력해 주십시오.';note.classList.add('show');return;}
+    var data={
+      '_subject':'[KCSTSA 홈페이지 협력문의] '+f.org.value+' / '+f.name.value,
+      '_template':'table','_captcha':'false','_replyto':f.email.value,
+      '성함':f.name.value,'회사·기관':f.org.value,'연락처':f.phone.value,'이메일':f.email.value,
+      '문의 분야':f.type.value,'문의 내용':f.msg.value,'작성 언어':zh?'中文':'한국어'
+    };
+    btn.disabled=true;btn.style.opacity=.6;
+    note.textContent=zh?'正在发送…':'전송 중입니다…';note.classList.add('show');
+    function fallback(){
+      var t='';for(var k in data){if(k.charAt(0)!=='_')t+=k+': '+data[k]+'\n';}
+      try{window.location.href='mailto:kcstsa@nate.com?subject='+encodeURIComponent(data._subject)+'&body='+encodeURIComponent(t);}catch(err){}
+      note.textContent=zh?'自动发送失败，已打开邮件应用。如未打开，请发送至 kcstsa@nate.com。':'자동 전송에 실패해 메일 앱을 엽니다. 열리지 않으면 kcstsa@nate.com 으로 보내 주십시오.';
+      btn.disabled=false;btn.style.opacity=1;
+    }
+    try{
+      fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok,j:j}})})
+      .then(function(res){
+        if(res.ok&&String(res.j.success)!=='false'){
+          note.textContent=zh?'咨询已成功提交，我们将尽快与您联系。':'문의가 정상적으로 접수되었습니다. 확인 후 연락드리겠습니다.';
+          f.reset();btn.disabled=false;btn.style.opacity=1;
+        }else fallback();
+      }).catch(fallback);
+    }catch(err){fallback();}
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var A={},T=function(k,z){return '<span class="ko">'+k+'</span><span class="zh">'+z+'</span>'};
+  var E=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  document.querySelectorAll('#mkdiag .mkd-ops').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;g.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});A[g.dataset.k]=b.dataset.v})});
+  var RISK=[
+   {w:['最佳','最好','最高','最强','最大','最优','全网最','第一','NO.1','No.1','唯一','首选','顶级','国家级','世界级','绝对','100%','万能','无敌','史上','冠军','최고','최상','1위','넘버원','유일','최초','완벽','100%','절대','세계 최고','국가대표'],ko:'절대화·최상급 표현',zh:'绝对化/最高级用语'},
+   {w:['根治','特效','包治','立即见效','零风险','无副作用','神器','神药','완치','특효','즉시 효과','부작용 없','기적','만병'],ko:'효과 보증·과장',zh:'夸大/保证疗效'},
+   {w:['治疗','治愈','消炎','杀菌','预防','疾病','降血糖','降血压','抗癌','医学','药妆','치료','치유','예방','질병','혈당','혈압','항암','염증','살균','의학','약효'],ko:'의료·질병 효능 표현',zh:'医疗/疾病功效用语',cat:['cos','food','hf','daily']},
+   {w:['美白','祛斑','防晒','防脱','生发','미백','기미','자외선 차단','탈모','발모'],ko:'특수 화장품 효능(등록 필요)',zh:'特殊化妆品功效（需注册）',cat:['cos']},
+   {w:['增强免疫','提高免疫','减肥','排毒','护肝','면역력','다이어트','디톡스','간 건강','피로 회복'],ko:'건강기능 표현(蓝帽子 필요)',zh:'保健功能用语（需蓝帽子）',cat:['food','hf']},
+   {w:['微信','vx','加V','加v','淘宝','二维码','카톡','카카오톡','링크','위챗'],ko:'외부 유도(플랫폼 제재)',zh:'站外导流（平台处罚）'}];
+  var CATN={cos:['화장품','化妆品'],hf:['건강기능식품','保健食品'],food:['일반식품','普通食品'],med:['의료기기','医疗器械'],daily:['생활용품','日用品']};
+  function scan(t,cat){var h=[];RISK.forEach(function(r){if(r.cat&&r.cat.indexOf(cat)<0)return;r.w.forEach(function(w){if(t.indexOf(w)>-1&&h.every(function(x){return x.w!==w}))h.push({w:w,r:r})})});return h}
+  document.getElementById('mkRun').onclick=function(){
+    var need=['cat','sales','lic','mat','tgt','goal'],miss=need.filter(function(k){return !A[k]});
+    var err=document.getElementById('mkErr');
+    if(miss.length){err.innerHTML=T('02~07번 질문에 모두 답해 주세요.','请回答第02~07题。');return}err.innerHTML='';
+    var name=document.getElementById('mkName').value.trim()||'—',copy=document.getElementById('mkCopy').value;
+    var sc={done:40,ing:22,none:5}[A.lic]+{yes:30,part:16,no:4}[A.mat]+{local:30,cbec:24,none:12}[A.sales];
+    if(A.cat==='med'&&A.lic!=='done')sc-=10;sc=Math.max(5,Math.min(100,sc));
+    var lv=sc>=75?['바로 실행 단계','可立即执行']:sc>=50?['준비 보완 단계','需补充准备']:['기초 준비 단계','基础准备阶段'];
+    var dy={w20:40,w30:45,mom:50,mid:70,men:65}[A.tgt];
+    if(A.goal==='sales')dy+=10;if(A.goal==='brand')dy-=5;if(A.cat==='cos')dy-=5;if(A.cat==='food'||A.cat==='hf')dy+=5;
+    dy=Math.max(20,Math.min(80,dy));var xhs=100-dy;
+    var press=A.goal==='b2b'?90:A.goal==='brand'?70:50;
+    var act=[];
+    if(A.lic!=='done')act.push(A.cat==='med'?T('NMPA 인허가부터 확인하세요. 의료기기 광고는 광고 심사 번호가 있어야 합니다. 협회 KCAI_코드02 인허가 진단을 함께 권합니다.','请先确认NMPA注册。医疗器械广告须取得广告批准文号，建议同时使用协会KCAI_코드02注册诊断。'):T('중국 등록·备案 상태를 먼저 정리하세요. 효능 표현의 범위가 등록 내용에 따라 정해집니다.','请先理清中国注册/备案状态，功效宣称范围取决于注册内容。'));
+    if(A.mat!=='yes')act.push(T('중문 상세페이지와 15~30초 숏폼부터 만드세요. 협회가 AI로 중문 콘텐츠를 제작합니다.','请先制作中文详情页及15-30秒短视频，协会借助AI为您制作中文内容。'));
+    act.push(dy>=xhs?T('더우인 비중을 높이세요. 숏폼 + 라이브커머스로 판매 전환을 노립니다.','建议加大抖音投入，以短视频+直播带货推动转化。'):T('샤오홍슈 비중을 높이세요. KOC 실사용 노트로 검색·입소문을 먼저 쌓습니다.','建议加大小红书投入，先以KOC真实笔记积累搜索与口碑。'));
+    if(A.goal==='b2b')act.push(T('중문 보도자료를 협회 중국 언론 100+에 배포해 바이어 신뢰를 확보하고, KCAI_코드01로 유통 파트너를 매칭하세요.','将中文新闻稿通过协会100余家中国媒体发布以建立采购商信任，并通过KCAI_코드01对接渠道伙伴。'));
+    else act.push(T('런칭 시점에 중문 보도자료를 협회 언론 네트워크 100+로 배포해 검색 신뢰도를 만드세요.','上市时通过协会100余家媒体网络发布中文新闻稿，建立搜索信任度。'));
+    var hits=copy.trim()?scan(copy,A.cat):null,ch;
+    if(hits===null)ch='<p style="font-size:14.5px;color:var(--body)">'+T('홍보 문구를 입력하면 중국 광고법 위험 표현을 점검해 드립니다.','填写宣传文案即可检查广告法风险用语。')+'</p>';
+    else if(!hits.length)ch='<p class="mkd-ok">'+T('자동 점검에서 위험 표현이 발견되지 않았습니다.','自动检查未发现风险用语。')+'</p>';
+    else{var hl=E(copy);hits.forEach(function(h){hl=hl.split(E(h.w)).join('<mark>'+E(h.w)+'</mark>')});
+      ch='<ul>'+hits.map(function(h){return '<li><mark>'+E(h.w)+'</mark> — '+T(h.r.ko,h.r.zh)+'</li>'}).join('')+'</ul><p style="margin-top:12px;font-size:14px;line-height:1.7;color:var(--body);background:#fff;border-radius:10px;padding:12px 14px">'+hl+'</p>'}
+    var bar=function(k,z,v,c){return '<div class="mkd-bar"><span>'+T(k,z)+'</span><div class="mkd-tr"><i style="width:0;background:'+c+'" data-w="'+v+'"></i></div><b>'+v+'%</b></div>'};
+    var R=document.getElementById('mkRes');
+    R.innerHTML='<div class="mkd-top"><div class="mkd-score"><b>'+sc+'<small>/100</small></b><span>'+T('중국 마케팅 준비도','中国营销准备度')+'</span><em>'+T(lv[0],lv[1])+'</em></div><div class="mkd-bars"><h4>'+T('추천 채널 배분 — '+E(name)+' ('+CATN[A.cat][0]+')','推荐渠道分配 — '+E(name)+'（'+CATN[A.cat][1]+'）')+'</h4>'+bar('抖音 더우인','抖音',dy,'#111')+bar('小红书 샤오홍슈','小红书',xhs,'#ff2442')+'<div style="height:6px"></div>'+bar('언론 배포 비중','媒体发布权重',press,'var(--navy)')+'</div></div>'+
+      '<div class="mkd-boxes"><div class="mkd-box"><h4>'+T('지금 해야 할 일','建议优先行动')+'</h4><ol>'+act.map(function(a){return '<li>'+a+'</li>'}).join('')+'</ol></div><div class="mkd-box"><h4>'+T('광고법 문구 점검','广告法文案检查')+'</h4>'+ch+'</div></div>'+
+      '<div class="mkd-cta"><a class="btn btn-red" id="mkMail">'+T('결과 보내고 상세 리포트 받기 (무료)','发送结果，免费获取详细报告')+'</a><a class="btn btn-navy" href="#contact">'+T('협력 문의하기','合作咨询')+'</a><p>'+T('※ 자동 진단은 참고용 1차 결과입니다. 상세 리포트와 비용은 협회 담당자가 맞춤으로 안내드립니다.','※ 自动诊断结果仅供参考，详细报告及费用将由协会负责人定制说明。')+'</p></div>';
+    var L=function(o,k){var b=document.querySelector('#mkdiag [data-k="'+k+'"] button.on');return b?b.querySelector('.ko').textContent:''};
+    var body='[KCAI_코드03 AI 중국 마케팅 자가진단 결과]\n제품명: '+name+'\n카테고리: '+L(0,'cat')+'\n중국 판매 현황: '+L(0,'sales')+'\n인허가: '+L(0,'lic')+'\n중문 자료: '+L(0,'mat')+'\n타깃: '+L(0,'tgt')+'\n목표: '+L(0,'goal')+'\n준비도: '+sc+'/100\n추천 배분: 더우인 '+dy+'% / 샤오홍슈 '+xhs+'%\n위험 표현: '+(hits&&hits.length?hits.map(function(h){return h.w}).join(', '):'없음')+'\n홍보 문구: '+copy+'\n\n회사명:\n담당자·연락처:\n(제품 소개서를 첨부해 주세요)';
+    document.getElementById('mkMail').href='mailto:kcstsa@nate.com?subject='+encodeURIComponent('[KCAI_코드03] AI 중국 마케팅 진단 — '+name)+'&body='+encodeURIComponent(body);
+    R.classList.add('on');setTimeout(function(){R.querySelectorAll(".mkd-tr i").forEach(function(i){i.style.width=i.dataset.w+'%'})},60);
+    R.scrollIntoView({behavior:'smooth',block:'start'});
+  };
+})();
+</script>
+<script>
+(function(){
+  var A={cert:[]},T=function(k,z){return '<span class="ko">'+k+'</span><span class="zh">'+z+'</span>'};
+  var E=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  document.querySelectorAll('#srdiag .mkd-ops').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    if(g.dataset.multi){if(b.dataset.v==='none'){g.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)})}else{g.querySelector('[data-v="none"]').classList.remove('on');b.classList.toggle('on')}
+      A.cert=[].map.call(g.querySelectorAll('button.on'),function(x){return x.dataset.v})}
+    else{g.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});A[g.dataset.k]=b.dataset.v}})});
+  var DICT={'진공 동결건조기':'真空冷冻干燥机','동결건조기':'冻干机','건조기':'干燥机','살균기':'杀菌设备','레토르트':'高温高压杀菌釜','진공포장기':'真空包装机','포장기':'包装机','충진기':'灌装机','컨베이어':'输送机','세척기':'清洗机','분쇄기':'粉碎机','믹서':'搅拌机','혼합기':'混合机','추출기':'提取设备','농축기':'浓缩设备','급속냉동기':'速冻机','냉동기':'冷冻设备','보일러':'锅炉','반응기':'反应釜','탱크':'储罐','금속탐지기':'金属探测器','라벨기':'贴标机','사출기':'注塑机','레이저 절단기':'激光切割机','로봇':'工业机器人','CNC':'数控机床','콜라겐':'胶原蛋白','알긴산':'海藻酸钠','키토산':'壳聚糖','해삼':'海参','쌀':'大米','포장필름':'包装膜','파우치':'包装袋','유리병':'玻璃瓶','종이박스':'纸箱','스테인리스':'不锈钢','PLA':'聚乳酸','PCL':'聚己内酯','PP':'聚丙烯','PE':'聚乙烯'};
+  var TY={equip:['설비·기계','设备'],raw:['원료·소재','原料'],part:['부품·반제품','零部件'],pack:['포장재·소모품','包装材料']};
+  function zhName(s){if(/[一-鿿]/.test(s)&&!/[가-힣]/.test(s))return s;var ks=Object.keys(DICT).sort(function(a,b){return b.length-a.length});for(var i=0;i<ks.length;i++)if(s.indexOf(ks[i])>-1)return DICT[ks[i]];return ''}
+  document.getElementById('srRun').onclick=function(){
+    var err=document.getElementById('srErr'),item=document.getElementById('srItem').value.trim();
+    if(!item||!A.type||!A.due||!A.insp){err.innerHTML=T('01·02·05·07번 질문에 답해 주세요.','请回答第01、02、05、07题。');return}err.innerHTML='';
+    var spec=document.getElementById('srSpec').value.trim(),qty=document.getElementById('srQty').value.trim(),bud=document.getElementById('srBud').value.trim();
+    var specs=spec?spec.split(/\n|；|;/).map(function(x){return x.trim()}).filter(Boolean):[];
+    var zh=zhName(item),certs=A.cert.filter(function(c){return c!=='none'});
+    var sc=25+(zh?15:0)+Math.min(specs.length,3)*8+(qty?10:0)+(bud?10:0)+(A.due!=='0'?6:0)+(A.cert.length?5:0);sc=Math.min(100,sc);
+    var lv=sc>=75?['바로 견적 단계','可直接询价']:sc>=50?['사양 보완 단계','需补充规格']:['기초 정리 단계','基础整理阶段'];
+    var kw=zh?[zh,zh+' 厂家',zh+' 源头工厂',zh+(A.type==='equip'?' 220V 60Hz':A.type==='raw'?' 食品级':' 定制')]:[];
+    var lead=A.type==='equip'?['4~8주','4~8周']:A.type==='raw'?['2~4주','2~4周']:['3~6주','3~6周'];
+    var act=[];
+    if(specs.length<2)act.push(T('사양을 구체적으로 적어 주세요. 재질·용량·크기·전압이 정해져야 공급사 견적을 비교할 수 있습니다.','请补充具体规格。材质、产能、尺寸、电压确定后，才能比较供应商报价。'));
+    if(A.type==='equip')act.push(T('한국 전압(220V/60Hz)과 설치·교육·A/S 범위를 견적 조건에 넣으세요. 중국 내수 설비는 50Hz 기준인 경우가 많습니다.','请在询价条件中写明韩国电压（220V/60Hz）及安装、培训、售后范围。中国内销设备多为50Hz标准。'));
+    if(A.type==='raw')act.push(T('COA·MSDS·유통기한과 한중FTA 원산지증명서 발급 가능 여부를 함께 요청하세요. 관세 혜택이 달라집니다.','请同时索取COA、MSDS、保质期，并确认可否出具中韩FTA原产地证书，关税待遇将因此不同。'));
+    act.push(A.insp==='no'?T('검수 없이 진행하면 사양 불일치·무역상 중개 위험이 있습니다. 최소한 출하 전 검품을 권합니다.','不检验直接采购存在规格不符及贸易商中间加价风险，建议至少进行装运前验货。'):T('협회가 산둥 5개 거점(지난·칭다오·웨이팡·옌타이·웨이하이)에서 '+(A.insp==='full'?'공장 실사와 출하 검수':'출하 검수')+'를 맡습니다.','协会将依托山东五大据点（济南、青岛、潍坊、烟台、威海）负责'+(A.insp==='full'?'验厂及验货':'装运前验货')+'。'));
+    act.push(T('비교 신뢰도를 위해 공급사 3곳 이상에 동시에 견적을 받습니다.','为确保比较可信度，将同时向3家以上供应商询价。'));
+    var rfq='询 价 函（草稿）\n\n尊敬的供应商负责人：\n\n您好！韩中科学技术服务协会受韩国企业委托，现拟采购以下产品，诚邀贵司报价：\n\n· 品名：'+(zh||'［协会确认中文品名］')+'\n'+(specs.length?specs.map(function(x){return '· 规格：'+x}).join('\n')+'\n':'· 规格：［待补充］\n')+'· 数量：'+(qty||'请按起订量报价')+'\n'+(certs.length?'· 认证要求：'+certs.join('、')+'\n':'')+'\n请提供单价、最小起订量、交期、付款方式、质保及资质证书'+(A.type==='equip'?'，并确认可适配韩国电压 220V/60Hz':A.type==='raw'?'，并附 COA、MSDS 及保质期说明':'')+'。'+(A.insp!=='no'?'\n协会将视需要安排实地验厂及出货前验货。':'')+'\n\n韩中科学技术服务协会（KCSTSA）';
+    var R=document.getElementById('srRes');
+    var tl=[['STEP 01',T('공급사 탐색','搜寻供应商'),T('약 1주','约1周')],['STEP 02',T('견적·비교','询价·比较'),T('1~2주','1~2周')],['STEP 03',(A.insp==='no'?T('계약','签约'):T('현지 검수','实地检验')),T(A.insp==='no'?'협의':'일정 협의','协商日程')],['STEP 04',T('생산·선적','生产·发货'),T(lead[0],lead[1])]];
+    R.innerHTML='<div class="mkd-top"><div class="mkd-score" style="background:#0E2A54"><b>'+sc+'<small>/100</small></b><span>'+T('소싱 요청 완성도','采购需求完整度')+'</span><em style="background:#0E8F80">'+T(lv[0],lv[1])+'</em></div><div class="mkd-bars"><h4>'+T('중문 검색 키워드 — '+E(item)+' ('+TY[A.type][0]+')','中文搜索关键词 — '+E(item)+'（'+TY[A.type][1]+'）')+'</h4>'+
+      (kw.length?'<div class="sr-kw">'+kw.map(function(k){return '<span>'+E(k)+'</span>'}).join('')+'</div>':'<p style="font-size:14.5px;color:var(--body)">'+T('입력하신 품목의 중문 산업 용어는 협회가 확인해 드립니다.','协会将为您确认该产品的中文行业术语。')+'</p>')+
+      '<h4 style="margin-top:20px">'+T('예상 진행 일정','预计进度')+'</h4><div class="sr-tl">'+tl.map(function(t){return '<div><b>'+t[0]+'</b><span>'+t[1]+'</span><small>'+t[2]+'</small></div>'}).join('')+'</div></div></div>'+
+      '<div class="mkd-boxes"><div class="mkd-box"><h4>'+T('지금 해야 할 일','建议优先行动')+'</h4><ol>'+act.map(function(a){return '<li>'+a+'</li>'}).join('')+'</ol></div><div class="mkd-box"><h4>'+T('중문 견적 요청서 미리보기','中文询价函预览')+'</h4><div class="sr-rfq">'+E(rfq)+'</div></div></div>'+
+      '<div class="mkd-cta"><a class="btn btn-red" id="srMail">'+T('요청 보내고 공급사 비교표 받기 (무료)','发送需求，免费获取供应商比较表')+'</a><a class="btn btn-navy" href="#contact">'+T('협력 문의하기','合作咨询')+'</a><p>'+T('※ 자동 결과는 참고용 1차 안내입니다. 실제 공급사 비교표와 비용은 협회 담당자가 맞춤으로 안내드립니다.','※ 自动结果仅供参考，实际供应商比较表及费用将由协会负责人定制说明。')+'</p></div>';
+    var L=function(k){var b=document.querySelectorAll('#srdiag [data-k="'+k+'"] button.on');return [].map.call(b,function(x){var s=x.querySelector('.ko');return s?s.textContent:x.textContent}).join(', ')};
+    var body='[KCAI_코드04 한중 B2B 소싱 요청]\n품목: '+item+(zh?' ('+zh+')':'')+'\n구분: '+L('type')+'\n사양:\n'+(spec||'-')+'\n수량: '+(qty||'-')+'\n목표 예산: '+(bud||'-')+'\n희망 납기: '+L('due')+'\n필요 인증: '+(L('cert')||'-')+'\n현지 검수: '+L('insp')+'\n요청 완성도: '+sc+'/100\n\n회사명:\n담당자·연락처:\n(사양서·도면·참고 사진을 첨부해 주세요)';
+    document.getElementById('srMail').href='mailto:kcstsa@nate.com?subject='+encodeURIComponent('[KCAI_코드04] 한중 B2B 소싱 요청 — '+item)+'&body='+encodeURIComponent(body);
+    R.classList.add('on');R.scrollIntoView({behavior:'smooth',block:'start'});
+  };
+})();
+</script>
+<script>
+/* 섹션별 '협력 문의하기' → 문의 분야 자동 선택 */
+document.addEventListener('click',function(e){var a=e.target.closest('a[href="#contact"]');if(!a)return;var sec=a.closest('section');if(!sec)return;
+  var m={kcai:'AI 매칭 (무료 AI 진단)',kcai3:'AI 중국 마케팅 (무료 자가진단)',kcai4:'AI B2B 소싱 (설비·원료 구매)'}[sec.id];if(!m)return;
+  var sel=document.getElementById('type');for(var i=0;i<sel.options.length;i++)if(sel.options[i].getAttribute('data-ko')===m){sel.selectedIndex=i;break}});
+</script>
+</body>
+</html>
