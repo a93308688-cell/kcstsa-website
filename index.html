@@ -855,7 +855,7 @@ footer{background:#0A1C3A;color:#8C9AB3;padding:60px 0 30px;font-size:14px}
   }else document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
 
   // form — kcstsa@nate.com 으로 바로 전송 (FormSubmit). 실패 시 메일 앱으로 대체
-  var FORM_ENDPOINT='https://formsubmit.co/ajax/kcstsa@nate.com';
+  var GAS_URL='https://script.google.com/macros/s/AKfycbwhMKo9UDzOIid9JTI2yPc_ReHQ24IUEXhlxIXBA4eaCPp2y6DO6Wj-Lovg7dx7OFo/exec'; // kcai.my 공용 구글 시트 신청 DB → kcstsa@nate.com 알림
   var form=document.getElementById('form');
   form.addEventListener('submit',function(e){
     e.preventDefault();
@@ -877,14 +877,15 @@ footer{background:#0A1C3A;color:#8C9AB3;padding:60px 0 30px;font-size:14px}
       note.textContent=zh?'自动发送失败，已打开邮件应用。如未打开，请发送至 kcstsa@nate.com。':'자동 전송에 실패해 메일 앱을 엽니다. 열리지 않으면 kcstsa@nate.com 으로 보내 주십시오.';
       btn.disabled=false;btn.style.opacity=1;
     }
+    var dt=new Date(),pd=function(n){return (n<10?'0':'')+n};
+    var no='KCSTSA-'+String(dt.getFullYear()).slice(2)+pd(dt.getMonth()+1)+pd(dt.getDate())+'-'+pd(dt.getHours())+pd(dt.getMinutes())+pd(dt.getSeconds());
+    var sum='[KCSTSA 홈페이지 협력문의] '+no+'\n';for(var k in data){if(k.charAt(0)!=='_')sum+=k+': '+data[k]+'\n';}sum+='\n접수 경로: kcstsa.or.kr 협력문의';
     try{
-      fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-      .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok,j:j}})})
-      .then(function(res){
-        if(res.ok&&String(res.j.success)!=='false'){
-          note.textContent=zh?'咨询已成功提交，我们将尽快与您联系。':'문의가 정상적으로 접수되었습니다. 확인 후 연락드리겠습니다.';
-          f.reset();btn.disabled=false;btn.style.opacity=1;
-        }else fallback();
+      fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body:JSON.stringify({no:no,source:'kcstsa.or.kr 협력문의',co:f.org.value,nm:f.name.value,ph:f.phone.value,em:f.email.value,ind:f.type.value,msg:f.msg.value,member:false,summary:sum})})
+      .then(function(){
+        note.textContent=zh?('咨询已成功提交（编号 '+no+'），我们将尽快与您联系。'):('문의가 정상적으로 접수되었습니다. (접수번호 '+no+') 확인 후 연락드리겠습니다.');
+        f.reset();btn.disabled=false;btn.style.opacity=1;
       }).catch(fallback);
     }catch(err){fallback();}
   });
